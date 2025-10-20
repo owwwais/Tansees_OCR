@@ -1,0 +1,7 @@
+# Mistral AI API Key
+# احصل على مفتاح API من: https://console.mistral.ai/
+MISTRAL_API_KEY=your_mistral_api_key_here
+
+# إعدادات إضافية (اختيارية)
+# DEBUG=True
+# LOG_LEVEL=INFO

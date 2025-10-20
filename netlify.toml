@@ -1,0 +1,53 @@
+[build]
+  # مجلد الملفات الثابتة
+  publish = "static"
+  
+  # أوامر البناء
+  command = "echo 'Build completed'"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
+
+# إعادة توجيه جميع طلبات API إلى Netlify Functions
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# إعادة توجيه الصفحة الرئيسية
+[[redirects]]
+  from = "/"
+  to = "/landing.html"
+  status = 200
+
+# إعادة توجيه للتطبيق
+[[redirects]]
+  from = "/app"
+  to = "/index.html"
+  status = 200
+
+# إعادة توجيه 404 إلى الصفحة الرئيسية
+[[redirects]]
+  from = "/*"
+  to = "/landing.html"
+  status = 404
+
+# إعدادات Headers للأمان
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+# إعدادات لملفات JavaScript و CSS
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق OCR العربي - استخراج النصوص بذكاء اصطناعي</title>
+    <meta name="description" content="أفضل تطبيق لاستخراج النصوص العربية من الصور والملفات باستخدام الذكاء الاصطناعي. دقة عالية، سرعة فائقة، ودعم كامل للعربية.">
+    <meta name="keywords" content="OCR, استخراج النص, الذكاء الاصطناعي, العربية, تحويل الصور إلى نص">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom CSS Variables -->
+    <style>
+        :root {
+            --gunmetal: #2d3142ff;
+            --paynes-gray: #4f5d75ff;
+            --silver: #bfc0c0ff;
+            --white: #ffffffff;
+            --coral: #ef8354ff;
+        }
+        
+        .bg-gunmetal { background-color: var(--gunmetal); }
+        .bg-paynes-gray { background-color: var(--paynes-gray); }
+        .bg-silver { background-color: var(--silver); }
+        .bg-coral { background-color: var(--coral); }
+        .text-gunmetal { color: var(--gunmetal); }
+        .text-paynes-gray { color: var(--paynes-gray); }
+        .text-coral { color: var(--coral); }
+        .border-coral { border-color: var(--coral); }
+        .border-gunmetal { border-color: var(--gunmetal); }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--gunmetal) 0%, var(--paynes-gray) 100%);
+        }
+        
+        .feature-card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(45, 49, 66, 0.15);
+        }
+        
+        .btn-hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(239, 131, 84, 0.3);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--gunmetal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'arabic': ['Cairo', 'IBM Plex Sans Arabic', 'system-ui', 'sans-serif']
+                    },
+                    colors: {
+                        'gunmetal': '#2d3142',
+                        'paynes-gray': '#4f5d75',
+                        'silver': '#bfc0c0',
+                        'coral': '#ef8354'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="font-arabic bg-gray-50" dir="rtl">
+    <!-- Navigation Header -->
+    <nav class="bg-white shadow-sm border-b border-gray-100 fixed top-0 w-full z-50" data-aos="fade-down">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <div class="bg-coral p-2 rounded-lg">
+                        <i data-feather="eye" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gunmetal">OCR عربي</h1>
+                        <p class="text-xs text-gray-500">استخراج النصوص الذكي</p>
+                    </div>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8 space-x-reverse">
+                    <a href="landing.html" class="text-coral font-bold">الرئيسية</a>
+                    <a href="index.html" class="text-gunmetal hover:text-coral transition-colors font-medium">التطبيق</a>
+                    <a href="about.html" class="text-gunmetal hover:text-coral transition-colors font-medium">من نحن</a>
+                    <a href="privacy.html" class="text-gunmetal hover:text-coral transition-colors font-medium">سياسة الخصوصية</a>
+                    <a href="#features" class="text-gunmetal hover:text-coral transition-colors font-medium">المميزات</a>
+                    <a href="#pricing" class="text-gunmetal hover:text-coral transition-colors font-medium">الأسعار</a>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <a href="index.html" class="bg-coral hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all btn-hover-lift">
+                        جرب الآن
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden text-gunmetal">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100 py-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="landing.html" class="text-coral font-bold px-4 py-2">الرئيسية</a>
+                    <a href="index.html" class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">التطبيق</a>
+                    <a href="about.html" class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">من نحن</a>
+                    <a href="privacy.html" class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">سياسة الخصوصية</a>
+                    <a href="#features" class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">المميزات</a>
+                    <a href="#pricing" class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">الأسعار</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient relative overflow-hidden pt-20 pb-16">
+        <div class="absolute inset-0 bg-black opacity-5"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center min-h-[600px]">
+                <!-- Hero Content -->
+                <div class="flex-1 text-white text-center lg:text-right mb-12 lg:mb-0" data-aos="fade-right">
+                    <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        استخراج النصوص
+                        <span class="block text-coral">بذكاء اصطناعي</span>
+                    </h1>
+                    <p class="text-xl lg:text-2xl mb-8 text-gray-200 leading-relaxed max-w-2xl">
+                        حول صورك ومستنداتك إلى نصوص قابلة للتعديل في ثوانٍ معدودة. 
+                        دقة عالية وسرعة فائقة مع دعم كامل للغة العربية.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+                        <a href="index.html" class="bg-coral hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all btn-hover-lift inline-flex items-center justify-center space-x-2 space-x-reverse">
+                            <i data-feather="play-circle" class="w-6 h-6"></i>
+                            <span>جرب مجاناً الآن</span>
+                        </a>
+                        <a href="#how-it-works" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white border-2 border-white border-opacity-30 px-8 py-4 rounded-lg font-bold text-lg transition-all inline-flex items-center justify-center space-x-2 space-x-reverse">
+                            <i data-feather="info" class="w-6 h-6"></i>
+                            <span>تعرف على المزيد</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-8 max-w-md mx-auto lg:mx-0">
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="text-3xl font-bold text-coral">99%</div>
+                            <div class="text-sm text-gray-300">دقة الاستخراج</div>
+                        </div>
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-3xl font-bold text-coral">10k+</div>
+                            <div class="text-sm text-gray-300">مستخدم راضي</div>
+                        </div>
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                            <div class="text-3xl font-bold text-coral">3s</div>
+                            <div class="text-sm text-gray-300">متوسط المعالجة</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Image/Demo -->
+                <div class="flex-1 max-w-lg" data-aos="fade-left" data-aos-delay="200">
+                    <div class="bg-white rounded-2xl p-8 shadow-2xl">
+                        <div class="bg-gray-100 rounded-xl p-6 mb-6">
+                            <div class="flex items-center justify-center h-48 bg-coral bg-opacity-10 rounded-lg border-2 border-dashed border-coral">
+                                <div class="text-center">
+                                    <i data-feather="upload" class="w-12 h-12 text-coral mx-auto mb-4"></i>
+                                    <p class="text-gunmetal font-semibold">اسحب وأفلت صورتك هنا</p>
+                                    <p class="text-gray-500 text-sm">أو انقر لاختيار ملف</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="h-4 bg-gray-200 rounded animate-pulse"></div>
+                            <div class="h-4 bg-gray-200 rounded w-4/5 animate-pulse"></div>
+                            <div class="h-4 bg-gray-200 rounded w-3/4 animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl lg:text-5xl font-bold text-gunmetal mb-6">
+                    لماذا اختر تطبيقنا؟
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    نقدم لك أحدث تقنيات الذكاء الاصطناعي لاستخراج النصوص بأعلى دقة وأسرع وقت ممكن
+                </p>
+            </div>
+            
+            <!-- Features Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100 feature-card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-coral bg-opacity-10 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i data-feather="zap" class="w-8 h-8 text-coral"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gunmetal mb-4">سرعة فائقة</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        معالجة فورية للصور والمستندات في أقل من 3 ثوانٍ مع ضمان الجودة والدقة العالية
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100 feature-card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-coral bg-opacity-10 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i data-feather="target" class="w-8 h-8 text-coral"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gunmetal mb-4">دقة استثنائية</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        تقنية ذكاء اصطناعي متطورة تحقق دقة 99% في استخراج النصوص العربية والإنجليزية
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100 feature-card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-coral bg-opacity-10 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i data-feather="shield" class="w-8 h-8 text-coral"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gunmetal mb-4">أمان تام</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        حماية كاملة لبياناتك مع تشفير متقدم وحذف تلقائي للملفات بعد المعالجة
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100 feature-card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-coral bg-opacity-10 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i data-feather="globe" class="w-8 h-8 text-coral"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gunmetal mb-4">دعم متعدد اللغات</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        دعم كامل للعربية مع خطوط مختلفة، بالإضافة إلى الإنجليزية ولغات أخرى
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100 feature-card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <div class="bg-coral bg-opacity-10 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i data-feather="smartphone" class="w-8 h-8 text-coral"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gunmetal mb-4">واجهة سهلة</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        تصميم بسيط ومفهوم يمكن لأي شخص استخدامه دون الحاجة لخبرة تقنية
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100 feature-card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="600">
+                    <div class="bg-coral bg-opacity-10 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i data-feather="download" class="w-8 h-8 text-coral"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gunmetal mb-4">تحميل مرن</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        امكانية تحميل النتائج بصيغ متعددة أو نسخها مباشرة إلى الحافظة
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl lg:text-5xl font-bold text-gunmetal mb-6">
+                    كيف يعمل التطبيق؟
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    عملية بسيطة في ثلاث خطوات لتحويل صورك إلى نصوص قابلة للتعديل
+                </p>
+            </div>
+            
+            <!-- Steps -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Step 1 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-coral w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <span class="text-2xl font-bold text-white">1</span>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-2xl font-bold text-gunmetal mb-4">ارفع الصورة</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            اسحب وأفلت صورتك أو ملف PDF في المنطقة المخصصة
+                        </p>
+                        <div class="bg-gray-100 h-24 rounded-lg flex items-center justify-center">
+                            <i data-feather="upload" class="w-8 h-8 text-coral"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-coral w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <span class="text-2xl font-bold text-white">2</span>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-2xl font-bold text-gunmetal mb-4">معالجة ذكية</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            الذكاء الاصطناعي يحلل الصورة ويستخرج النص بدقة عالية
+                        </p>
+                        <div class="bg-gray-100 h-24 rounded-lg flex items-center justify-center">
+                            <i data-feather="cpu" class="w-8 h-8 text-coral"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-coral w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <span class="text-2xl font-bold text-white">3</span>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-2xl font-bold text-gunmetal mb-4">احصل على النتيجة</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            انسخ النص أو حمله كملف واستخدمه كما تشاء
+                        </p>
+                        <div class="bg-gray-100 h-24 rounded-lg flex items-center justify-center">
+                            <i data-feather="download" class="w-8 h-8 text-coral"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
+                <a href="index.html" class="bg-coral hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all btn-hover-lift inline-flex items-center space-x-2 space-x-reverse">
+                    <i data-feather="arrow-left" class="w-6 h-6"></i>
+                    <span>ابدأ الآن مجاناً</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl lg:text-5xl font-bold text-gunmetal mb-6">
+                    خطط "معقدة" جداً 😄
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    اختر من بين خيارات صعبة للغاية... كلها مجانية! 🎉
+                </p>
+                <div class="inline-flex items-center bg-coral bg-opacity-10 px-6 py-3 rounded-full mt-4">
+                    <i data-feather="gift" class="w-5 h-5 text-coral ml-2"></i>
+                    <span class="text-coral font-semibold">كل شيء مجاني إلى الأبد!</span>
+                </div>
+            </div>
+            
+            <!-- Pricing Cards -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Free Plan -->
+                <div class="bg-white rounded-xl p-8 shadow-lg border-2 border-gray-100 hover:border-coral transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gunmetal mb-2">مجاني 😊</h3>
+                        <div class="text-4xl font-bold text-coral mb-2">0 ريال</div>
+                        <p class="text-gray-600">للجميع (نعم، حتى لك!)</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3 space-x-reverse">
+                            <i data-feather="check" class="w-5 h-5 text-green-500"></i>
+                            <span class="text-gray-700">صور غير محدودة</span>
+                        </li>
+                        <li class="flex items-center space-x-3 space-x-reverse">
+                            <i data-feather="check" class="w-5 h-5 text-green-500"></i>
+                            <span class="text-gray-700">دعم العربية والإنجليزية</span>
+                        </li>
+                        <li class="flex items-center space-x-3 space-x-reverse">
+                            <i data-feather="check" class="w-5 h-5 text-green-500"></i>
+                            <span class="text-gray-700">نسخ وتحميل النص</span>
+                        </li>
+                        <li class="flex items-center space-x-3 space-x-reverse">
+                            <i data-feather="heart" class="w-5 h-5 text-coral"></i>
+                            <span class="text-gray-700">حب لا محدود من فريقنا ❤️</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="index.html" class="block w-full bg-gray-100 hover:bg-gray-200 text-gunmetal text-center py-3 rounded-lg font-semibold transition-all">
+                        ابدأ مجاناً (بجد!)
+                    </a>
+                </div>
+                
+                <!-- Pro Plan -->
+                <div class="bg-coral rounded-xl p-8 shadow-xl border-2 border-coral transform scale-105 relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <div class="bg-gunmetal text-white px-6 py-2 rounded-full text-sm font-semibold">
+                            مجاني أيضاً! 🤯
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">مجاني+ 🚀</h3>
+                        <div class="flex items-center justify-center mb-2">
+                            <div class="text-2xl font-bold text-white line-through opacity-50">99 ريال</div>
+                            <div class="text-4xl font-bold text-white mx-2">0 ريال</div>
+                        </div>
+                        <p class="text-white text-opacity-80">للأبد (وإلى ما لا نهاية)</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3 space-x-reverse">
+                            <i data-feather="check" class="w-5 h-5 text-white"></i>
+                            <span class="text-white">كل شيء في الباقة العادية</span>
+                        </li>
+                        <li class="flex items-center space-x-3 space-x-reverse">
+                            <i data-feather="check" class="w-5 h-5 text-white"></i>
+                            <span class="text-white">شعور بالفخر لاختيارك هذه الباقة</span>
+                        </li>
+                        <li class="flex items-center space-x-3 space-x-reverse">  
+                            <i data-feather="check" class="w-5 h-5 text-white"></i>
+                            <span class="text-white">بريق إضافي ✨</span>
+                        </li>
+                        <li class="flex items-center space-x-3 space-x-reverse">
+                            <i data-feather="check" class="w-5 h-5 text-white"></i>
+                            <span class="text-white">دعم معنوي 24/7 💪</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="index.html" class="block w-full bg-white hover:bg-gray-100 text-coral text-center py-3 rounded-lg font-semibold transition-all">
+                        اختر المجاني+ (محرج!)
+                    </a>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="bg-white rounded-xl p-8 shadow-lg border-2 border-gray-100 hover:border-coral transition-all duration-300 relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute -top-3 -right-3">
+                        <div class="bg-coral text-white text-xs px-3 py-1 rounded-full transform rotate-12">
+                            صفقة لا تُفوّت! 😂
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gunmetal mb-2">مجاني برو++ VIP 👑</h3>
+                        <div class="flex items-center justify-center mb-2">
+                            <div class="text-2xl font-bold text-gray-400 line-through">299 ريال</div>
+                            <div class="text-lg font-bold text-gray-400 line-through mx-1">99 ريال</div>
+                            <div class="text-4xl font-bold text-coral mx-2">0 ريال</div>
+                        </div>
+                        <p class="text-gray-600">مدى الحياة + حياة أخرى مجاناً!</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3 space-x-reverse">
+                            <i data-feather="check" class="w-5 h-5 text-green-500"></i>
+                            <span class="text-gray-700">كل شيء في الباقات السابقة</span>
+                        </li>
+                        <li class="flex items-center space-x-3 space-x-reverse">
+                            <i data-feather="check" class="w-5 h-5 text-green-500"></i>
+                            <span class="text-gray-700">شهادة VIP افتراضية 🏆</span>
+                        </li>
+                        <li class="flex items-center space-x-3 space-x-reverse">
+                            <i data-feather="check" class="w-5 h-5 text-green-500"></i>
+                            <span class="text-gray-700">حق التفاخر أمام الأصدقاء</span>
+                        </li>
+                        <li class="flex items-center space-x-3 space-x-reverse">
+                            <i data-feather="star" class="w-5 h-5 text-yellow-500"></i>
+                            <span class="text-gray-700">دعوة لحفل افتتاح (افتراضي) 🎉</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="index.html" class="block w-full bg-gunmetal hover:bg-paynes-gray text-white text-center py-3 rounded-lg font-semibold transition-all">
+                        اختر الـ VIP (مجاناً طبعاً!)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 hero-gradient">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                جاهز للبدء؟
+            </h2>
+            <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+                انضم إلى آلاف المستخدمين الذين يثقون في تطبيقنا لاستخراج النصوص بأعلى جودة
+            </p>
+            <a href="index.html" class="bg-coral hover:bg-opacity-90 text-white px-10 py-5 rounded-lg font-bold text-xl transition-all btn-hover-lift inline-flex items-center space-x-3 space-x-reverse">
+                <i data-feather="arrow-left" class="w-7 h-7"></i>
+                <span>ابدأ رحلتك الآن</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gunmetal text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 space-x-reverse mb-6">
+                        <div class="bg-coral p-2 rounded-lg">
+                            <i data-feather="eye" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">OCR عربي</h3>
+                            <p class="text-gray-400">استخراج النصوص الذكي</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed max-w-md mb-6">
+                        نحن نقدم أحدث تقنيات الذكاء الاصطناعي لاستخراج النصوص من الصور والمستندات 
+                        بأعلى دقة وأسرع وقت ممكن مع دعم كامل للغة العربية.
+                    </p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="bg-paynes-gray hover:bg-coral p-3 rounded-lg transition-colors">
+                            <i data-feather="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="bg-paynes-gray hover:bg-coral p-3 rounded-lg transition-colors">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="bg-paynes-gray hover:bg-coral p-3 rounded-lg transition-colors">
+                            <i data-feather="github" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">روابط سريعة</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-coral transition-colors">الرئيسية</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-coral transition-colors">المميزات</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-coral transition-colors">الأسعار</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-coral transition-colors">من نحن</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-coral transition-colors">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">تواصل معنا</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center space-x-3 space-x-reverse text-gray-400">
+                            <i data-feather="mail" class="w-5 h-5 text-coral"></i>
+                            <span>info@ocr-arabic.com</span>
+                        </li>
+                        <li class="flex items-center space-x-3 space-x-reverse text-gray-400">
+                            <i data-feather="phone" class="w-5 h-5 text-coral"></i>
+                            <span>+966 12 345 6789</span>
+                        </li>
+                        <li class="flex items-center space-x-3 space-x-reverse text-gray-400">
+                            <i data-feather="map-pin" class="w-5 h-5 text-coral"></i>
+                            <span>الرياض، المملكة العربية السعودية</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-paynes-gray pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2024 OCR عربي. جميع الحقوق محفوظة.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+        
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80; // Account for fixed header
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header Background on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('backdrop-blur-md', 'bg-white', 'bg-opacity-95');
+            } else {
+                nav.classList.remove('backdrop-blur-md', 'bg-white', 'bg-opacity-95');
+            }
+        });
+    </script>
+</body>
+</html>

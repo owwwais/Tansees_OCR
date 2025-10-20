@@ -1,0 +1,32 @@
+:root {
+  --black: #0a0908ff;
+  --gunmetal: #22333bff;
+  --almond: #eae0d5ff;
+  --khaki: #c6ac8fff;
+  --walnut-brown: #5e503fff;
+}
+
+body {
+  background-color: var(--almond);
+  color: var(--black);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  background-color: var(--gunmetal);
+  color: white;
+  padding: 1rem;
+}
+
+button {
+  background-color: var(--khaki);
+  color: var(--black);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--walnut-brown);
+  color: white;
+}

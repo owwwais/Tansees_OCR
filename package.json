@@ -1,0 +1,23 @@
+{
+  "name": "arabic-ocr-app",
+  "version": "1.0.0",
+  "description": "تطبيق OCR العربي - تحويل الصور والمستندات إلى نص",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'Build completed'",
+    "deploy": "netlify deploy",
+    "deploy:prod": "netlify deploy --prod"
+  },
+  "keywords": [
+    "ocr",
+    "arabic",
+    "text-extraction",
+    "ai",
+    "mistral"
+  ],
+  "author": "OCR Arabic Team",
+  "license": "MIT",
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}

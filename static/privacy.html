@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الخصوصية - تطبيق OCR العربي</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gunmetal': '#2F2F3A',
+                        'coral': '#ff6a50',
+                        'silver-gray': '#c0c0c0',
+                        'soft-white': '#f8f9fa',
+                        'light-blue': '#e3f2fd'
+                    },
+                    fontFamily: {
+                        'arabic': ['Cairo', 'Noto Sans Arabic', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts - Cairo for Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <style>
+        * {
+            font-family: 'Cairo', 'Noto Sans Arabic', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #2F2F3A 0%, #4a4a5a 100%);
+        }
+        
+        .coral-gradient {
+            background: linear-gradient(135deg, #ff6a50 0%, #ff8a70 100%);
+        }
+        
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        
+        .privacy-section {
+            scroll-margin-top: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-soft-white text-gunmetal font-arabic scroll-smooth">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-coral p-2 rounded-lg">
+                        <i data-feather="eye" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gunmetal">OCR العربي</h1>
+                        <p class="text-xs text-gray-500">تحويل الصور إلى نص</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="landing.html" class="text-gunmetal hover:text-coral transition-colors duration-300 font-medium">الرئيسية</a>
+                    <a href="index.html" class="text-gunmetal hover:text-coral transition-colors duration-300 font-medium">التطبيق</a>
+                    <a href="about.html" class="text-gunmetal hover:text-coral transition-colors duration-300 font-medium">من نحن</a>
+                    <a href="privacy.html" class="text-coral font-bold">سياسة الخصوصية</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" class="text-gunmetal hover:text-coral focus:outline-none focus:text-coral transition-colors duration-300">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden bg-white border-t border-gray-200 hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="landing.html" class="block px-3 py-2 text-gunmetal hover:text-coral transition-colors duration-300 font-medium">الرئيسية</a>
+                <a href="index.html" class="block px-3 py-2 text-gunmetal hover:text-coral transition-colors duration-300 font-medium">التطبيق</a>
+                <a href="about.html" class="block px-3 py-2 text-gunmetal hover:text-coral transition-colors duration-300 font-medium">من نحن</a>
+                <a href="privacy.html" class="block px-3 py-2 text-coral font-bold">سياسة الخصوصية</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+            <div class="mb-6">
+                <i data-feather="shield" class="w-16 h-16 mx-auto text-coral mb-4"></i>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">سياسة الخصوصية</h1>
+            <p class="text-xl mb-8 text-gray-300 leading-relaxed">
+                نحن ملتزمون بحماية خصوصيتك وضمان أمان بياناتك الشخصية
+            </p>
+            <div class="text-sm text-gray-400">
+                آخر تحديث: ديسمبر 2024
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <!-- Table of Contents -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-gunmetal mb-6 flex items-center">
+                <i data-feather="list" class="w-6 h-6 text-coral ml-3"></i>
+                المحتويات
+            </h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <a href="#data-collection" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
+                    <i data-feather="database" class="w-5 h-5 text-coral ml-3"></i>
+                    <span class="text-gunmetal hover:text-coral">جمع البيانات</span>
+                </a>
+                <a href="#data-usage" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
+                    <i data-feather="activity" class="w-5 h-5 text-coral ml-3"></i>
+                    <span class="text-gunmetal hover:text-coral">استخدام البيانات</span>
+                </a>
+                <a href="#data-storage" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
+                    <i data-feather="server" class="w-5 h-5 text-coral ml-3"></i>
+                    <span class="text-gunmetal hover:text-coral">تخزين البيانات</span>
+                </a>
+                <a href="#data-sharing" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
+                    <i data-feather="share-2" class="w-5 h-5 text-coral ml-3"></i>
+                    <span class="text-gunmetal hover:text-coral">مشاركة البيانات</span>
+                </a>
+                <a href="#user-rights" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
+                    <i data-feather="user-check" class="w-5 h-5 text-coral ml-3"></i>
+                    <span class="text-gunmetal hover:text-coral">حقوق المستخدم</span>
+                </a>
+                <a href="#contact" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
+                    <i data-feather="mail" class="w-5 h-5 text-coral ml-3"></i>
+                    <span class="text-gunmetal hover:text-coral">التواصل</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Privacy Policy Sections -->
+        
+        <!-- Introduction -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-gunmetal mb-6 flex items-center">
+                <i data-feather="info" class="w-6 h-6 text-coral ml-3"></i>
+                مقدمة
+            </h2>
+            <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                <p class="mb-4">
+                    مرحباً بك في تطبيق OCR العربي. نحن نقدر ثقتك بنا ونلتزم بحماية خصوصيتك وأمان معلوماتك الشخصية. 
+                    تشرح هذه السياسة كيفية جمعنا واستخدامنا وحمايتنا للمعلومات التي تقدمها لنا عند استخدام خدماتنا.
+                </p>
+                <p>
+                    من خلال استخدام تطبيق OCR العربي، فإنك توافق على الممارسات الموضحة في هذه السياسة. 
+                    إذا كانت لديك أي أسئلة أو مخاوف، يرجى التواصل معنا.
+                </p>
+            </div>
+        </section>
+
+        <!-- Data Collection -->
+        <section id="data-collection" class="bg-white rounded-2xl shadow-lg p-8 mb-8 privacy-section" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-gunmetal mb-6 flex items-center">
+                <i data-feather="database" class="w-6 h-6 text-coral ml-3"></i>
+                البيانات التي نجمعها
+            </h2>
+            <div class="space-y-6">
+                <div class="border-r-4 border-coral pr-6">
+                    <h3 class="text-xl font-semibold text-gunmetal mb-3">الملفات المرفوعة</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        نجمع الصور والمستندات التي ترفعها لمعالجتها باستخدام تقنية OCR. 
+                        هذه الملفات ضرورية لتقديم الخدمة ولا يتم تخزينها بشكل دائم على خوادمنا.
+                    </p>
+                </div>
+                
+                <div class="border-r-4 border-coral pr-6">
+                    <h3 class="text-xl font-semibold text-gunmetal mb-3">معلومات الاستخدام</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        نجمع معلومات حول كيفية استخدامك للتطبيق، مثل نوع المتصفح، عنوان IP، 
+                        وأوقات الوصول لتحسين أداء الخدمة وتجربة المستخدم.
+                    </p>
+                </div>
+                
+                <div class="border-r-4 border-coral pr-6">
+                    <h3 class="text-xl font-semibold text-gunmetal mb-3">ملفات تعريف الارتباط</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        نستخدم ملفات تعريف الارتباط الأساسية فقط لضمان عمل التطبيق بشكل صحيح. 
+                        لا نستخدم ملفات تعريف الارتباط لأغراض الدعاية أو التتبع.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Usage -->
+        <section id="data-usage" class="bg-white rounded-2xl shadow-lg p-8 mb-8 privacy-section" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-gunmetal mb-6 flex items-center">
+                <i data-feather="activity" class="w-6 h-6 text-coral ml-3"></i>
+                كيف نستخدم بياناتك
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-light-blue rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="eye" class="w-8 h-8 text-coral ml-3"></i>
+                        <h3 class="text-lg font-semibold text-gunmetal">معالجة OCR</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        نستخدم ملفاتك المرفوعة حصرياً لاستخراج النص منها باستخدام تقنية التعرف البصري على الحروف.
+                    </p>
+                </div>
+                
+                <div class="bg-light-blue rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="bar-chart-2" class="w-8 h-8 text-coral ml-3"></i>
+                        <h3 class="text-lg font-semibold text-gunmetal">تحسين الخدمة</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        نحلل بيانات الاستخدام لتحسين أداء التطبيق وإضافة ميزات جديدة تلبي احتياجاتك.
+                    </p>
+                </div>
+                
+                <div class="bg-light-blue rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="shield-check" class="w-8 h-8 text-coral ml-3"></i>
+                        <h3 class="text-lg font-semibold text-gunmetal">الأمان</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        نراقب أنماط الاستخدام لاكتشاف ومنع أي نشاط مشبوه أو سوء استخدام للخدمة.
+                    </p>
+                </div>
+                
+                <div class="bg-light-blue rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="message-circle" class="w-8 h-8 text-coral ml-3"></i>
+                        <h3 class="text-lg font-semibold text-gunmetal">التواصل</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        قد نستخدم معلومات الاتصال للرد على استفساراتك أو إشعارك بتحديثات مهمة.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Storage -->
+        <section id="data-storage" class="bg-white rounded-2xl shadow-lg p-8 mb-8 privacy-section" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-gunmetal mb-6 flex items-center">
+                <i data-feather="server" class="w-6 h-6 text-coral ml-3"></i>
+                تخزين وحماية البيانات
+            </h2>
+            <div class="space-y-6">
+                <div class="bg-gradient-to-l from-coral to-red-400 text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <i data-feather="clock" class="w-6 h-6 ml-3"></i>
+                        سياسة الحذف التلقائي
+                    </h3>
+                    <p class="text-lg">
+                        جميع الملفات المرفوعة يتم حذفها تلقائياً من خوادمنا خلال 24 ساعة من المعالجة
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gunmetal mb-3 flex items-center">
+                            <i data-feather="lock" class="w-5 h-5 text-coral ml-2"></i>
+                            التشفير
+                        </h3>
+                        <p class="text-gray-700">
+                            جميع البيانات محمية بتشفير SSL/TLS أثناء النقل وتشفير AES-256 أثناء التخزين المؤقت.
+                        </p>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gunmetal mb-3 flex items-center">
+                            <i data-feather="cloud" class="w-5 h-5 text-coral ml-2"></i>
+                            البنية التحتية
+                        </h3>
+                        <p class="text-gray-700">
+                            نستخدم خوادم آمنة مع نسخ احتياطية منتظمة وحماية متقدمة من الهجمات السيبرانية.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Sharing -->
+        <section id="data-sharing" class="bg-white rounded-2xl shadow-lg p-8 mb-8 privacy-section" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-gunmetal mb-6 flex items-center">
+                <i data-feather="share-2" class="w-6 h-6 text-coral ml-3"></i>
+                مشاركة البيانات
+            </h2>
+            <div class="bg-red-50 border border-red-200 rounded-lg p-6 mb-6">
+                <div class="flex items-center mb-3">
+                    <i data-feather="alert-triangle" class="w-6 h-6 text-red-500 ml-3"></i>
+                    <h3 class="text-lg font-bold text-red-700">سياسة عدم المشاركة</h3>
+                </div>
+                <p class="text-red-700 font-medium">
+                    نحن لا نبيع أو نؤجر أو نشارك معلوماتك الشخصية مع أطراف ثالثة لأغراض تجارية.
+                </p>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-gunmetal mb-4">الاستثناءات المحدودة:</h3>
+            <div class="space-y-4">
+                <div class="flex items-start">
+                    <i data-feather="scale" class="w-5 h-5 text-coral mt-1 ml-3 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-semibold text-gunmetal">الالتزام القانوني</h4>
+                        <p class="text-gray-700">قد نكشف عن المعلومات إذا طُلب منا ذلك بموجب قانون أو أمر قضائي.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <i data-feather="shield" class="w-5 h-5 text-coral mt-1 ml-3 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-semibold text-gunmetal">حماية الحقوق</h4>
+                        <p class="text-gray-700">لحماية حقوقنا أو حقوق المستخدمين الآخرين أو للدفاع ضد المطالبات القانونية.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <i data-feather="alert-circle" class="w-5 h-5 text-coral mt-1 ml-3 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-semibold text-gunmetal">الطوارئ</h4>
+                        <p class="text-gray-700">في حالات الطوارئ لحماية السلامة الشخصية أو منع ضرر جسيم.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Rights -->
+        <section id="user-rights" class="bg-white rounded-2xl shadow-lg p-8 mb-8 privacy-section" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-gunmetal mb-6 flex items-center">
+                <i data-feather="user-check" class="w-6 h-6 text-coral ml-3"></i>
+                حقوقك كمستخدم
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                    <div class="flex items-center mb-3">
+                        <i data-feather="eye" class="w-6 h-6 text-green-600 ml-3"></i>
+                        <h3 class="text-lg font-semibold text-green-800">الحق في الاطلاع</h3>
+                    </div>
+                    <p class="text-green-700">
+                        يمكنك طلب نسخة من جميع البيانات الشخصية التي نحتفظ بها عنك.
+                    </p>
+                </div>
+                
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                    <div class="flex items-center mb-3">
+                        <i data-feather="edit-3" class="w-6 h-6 text-blue-600 ml-3"></i>
+                        <h3 class="text-lg font-semibold text-blue-800">الحق في التصحيح</h3>
+                    </div>
+                    <p class="text-blue-700">
+                        يمكنك طلب تصحيح أي معلومات غير دقيقة أو غير مكتملة.
+                    </p>
+                </div>
+                
+                <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                    <div class="flex items-center mb-3">
+                        <i data-feather="trash-2" class="w-6 h-6 text-red-600 ml-3"></i>
+                        <h3 class="text-lg font-semibold text-red-800">الحق في الحذف</h3>
+                    </div>
+                    <p class="text-red-700">
+                        يمكنك طلب حذف بياناتك الشخصية في ظروف معينة.
+                    </p>
+                </div>
+                
+                <div class="bg-purple-50 border border-purple-200 rounded-lg p-6">
+                    <div class="flex items-center mb-3">
+                        <i data-feather="download" class="w-6 h-6 text-purple-600 ml-3"></i>
+                        <h3 class="text-lg font-semibold text-purple-800">قابلية النقل</h3>
+                    </div>
+                    <p class="text-purple-700">
+                        يمكنك الحصول على بياناتك بتنسيق قابل للقراءة آلياً.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-6 bg-gray-50 rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-gunmetal mb-3">كيفية ممارسة حقوقك</h3>
+                <p class="text-gray-700">
+                    لممارسة أي من هذه الحقوق، يرجى التواصل معنا عبر البريد الإلكتروني. 
+                    سنرد على طلبك خلال 30 يوماً من تاريخ استلامه.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section id="contact" class="bg-white rounded-2xl shadow-lg p-8 mb-8 privacy-section" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-gunmetal mb-6 flex items-center">
+                <i data-feather="mail" class="w-6 h-6 text-coral ml-3"></i>
+                التواصل معنا
+            </h2>
+            <div class="bg-gradient-to-l from-gunmetal to-gray-600 text-white rounded-lg p-8">
+                <h3 class="text-xl font-bold mb-6">لأي استفسارات حول سياسة الخصوصية</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex items-center">
+                        <i data-feather="mail" class="w-6 h-6 text-coral ml-3"></i>
+                        <div>
+                            <p class="font-semibold">البريد الإلكتروني</p>
+                            <p class="text-gray-300">privacy@ocr-arabic.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <i data-feather="clock" class="w-6 h-6 text-coral ml-3"></i>
+                        <div>
+                            <p class="font-semibold">مدة الرد</p>
+                            <p class="text-gray-300">خلال 48 ساعة</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 p-4 bg-white bg-opacity-10 rounded-lg">
+                    <p class="text-sm text-gray-300">
+                        نحن ملتزمون بحماية خصوصيتك والرد على جميع استفساراتك بشكل سريع ومفصل. 
+                        فريقنا متاح لمساعدتك في فهم سياسة الخصوصية أو ممارسة حقوقك.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Last Update Notice -->
+        <section class="bg-coral text-white rounded-2xl p-8 text-center" data-aos="fade-up">
+            <div class="flex items-center justify-center mb-4">
+                <i data-feather="calendar" class="w-8 h-8 ml-3"></i>
+                <h2 class="text-2xl font-bold">تحديثات السياسة</h2>
+            </div>
+            <p class="text-lg mb-4">
+                آخر تحديث لهذه السياسة: ديسمبر 2024
+            </p>
+            <p class="text-coral-100">
+                سنقوم بإشعارك بأي تغييرات مهمة على سياسة الخصوصية عبر البريد الإلكتروني أو من خلال إشعار على الموقع.
+            </p>
+        </section>
+
+        <!-- Back to Top Button -->
+        <div class="fixed bottom-8 left-8 z-50">
+            <button id="backToTop" class="bg-coral hover:bg-red-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible">
+                <i data-feather="arrow-up" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gunmetal text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="bg-coral p-2 rounded-lg">
+                            <i data-feather="eye" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">OCR العربي</h3>
+                            <p class="text-gray-400 text-sm">تحويل الصور إلى نص</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        منصة متطورة لتحويل الصور والمستندات إلى نص قابل للتحرير باللغة العربية باستخدام أحدث تقنيات الذكاء الاصطناعي.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-coral">روابط سريعة</h4>
+                    <ul class="space-y-2">
+                        <li><a href="landing.html" class="text-gray-300 hover:text-white transition-colors duration-300">الرئيسية</a></li>
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-300">التطبيق</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-white transition-colors duration-300">من نحن</a></li>
+                        <li><a href="privacy.html" class="text-white font-semibold">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-coral">تواصل معنا</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i data-feather="mail" class="w-4 h-4 text-coral ml-2"></i>
+                            <span class="text-gray-300 text-sm">info@ocr-arabic.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="shield" class="w-4 h-4 text-coral ml-2"></i>
+                            <span class="text-gray-300 text-sm">privacy@ocr-arabic.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-gray-600 my-8">
+            
+            <div class="text-center">
+                <p class="text-gray-400">
+                    &copy; 2024 OCR العربي. جميع الحقوق محفوظة.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add active section highlighting in navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.privacy-section');
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-coral', 'font-bold');
+                link.classList.add('text-gunmetal');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-coral', 'font-bold');
+                    link.classList.remove('text-gunmetal');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
