@@ -85,7 +85,7 @@ async def owwwais_logo():
     from fastapi.responses import FileResponse
     return FileResponse("static/owwwais_logo.svg", media_type="image/svg+xml")
 
-@app.post("/upload")
+@app.post("/api/upload")
 async def upload_file(file: UploadFile = File(...)):
     """رفع ملف للمعالجة"""
     try:
@@ -107,7 +107,7 @@ async def upload_file(file: UploadFile = File(...)):
         logger.error(f"خطأ في رفع الملف: {str(e)}")
         raise HTTPException(status_code=500, detail="خطأ في رفع الملف")
 
-@app.post("/process-ocr")
+@app.post("/api/process-ocr")
 async def process_ocr(filename: str = Form(...)):
     """معالجة OCR للملف"""
     try:
