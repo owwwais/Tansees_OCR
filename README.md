@@ -161,3 +161,4 @@ arabic-ocr/
 ✅ تتحول Functions في `netlify/functions/` إلى Serverless APIs  
 ✅ يتم توجيه `/api/*` إلى Functions  
 ✅ الموقع يعمل بشكل كامل على الإنترنت!
+# Tansees_OCR
