@@ -4,7 +4,7 @@
 
 ### ملفات التكوين
 - [x] `netlify.toml` - ملف تكوين Netlify
-- [x] `runtime.txt` - إصدار Python (3.11)
+- [x] `runtime.txt` - إصدار Python (3.13)
 - [x] `package.json` - تكوين npm
 - [x] `.gitignore` - ملفات يتم تجاهلها
 

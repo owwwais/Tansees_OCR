@@ -1,0 +1,117 @@
+[debug] [2025-11-11T14:56:18.073Z] ----------------------------------------------------------------------
+[debug] [2025-11-11T14:56:18.079Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2025-11-11T14:56:18.079Z] CLI Version:   14.11.2
+[debug] [2025-11-11T14:56:18.079Z] Platform:      darwin
+[debug] [2025-11-11T14:56:18.079Z] Node Version:  v22.16.0
+[debug] [2025-11-11T14:56:18.079Z] Time:          Tue Nov 11 2025 17:56:18 GMT+0300 (Arabian Standard Time)
+[debug] [2025-11-11T14:56:18.079Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-11-11T14:56:18.080Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-11-11T14:56:18.115Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-11-11T14:56:18.115Z] > authorizing via signed-in user (oiesahmad1@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/owais/ملفاتي/مشاريعي/arabic OCR
+
+[debug] [2025-11-11T14:56:19.056Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-11-11T14:56:19.056Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2025-11-11T14:56:49.969Z] Checked if tokens are valid: false, expires at: 1757676493526
+[debug] [2025-11-11T14:56:49.971Z] Checked if tokens are valid: false, expires at: 1757676493526
+[debug] [2025-11-11T14:56:49.972Z] > refreshing access token with scopes: []
+[debug] [2025-11-11T14:56:49.974Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-11-11T14:56:49.974Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-11-11T14:56:50.575Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-11-11T14:56:50.576Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-11-11T14:56:50.589Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2025-11-11T14:56:50.590Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"tansees"}
+[debug] [2025-11-11T14:56:51.549Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2025-11-11T14:56:51.549Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_UNAVAILABLE","suggestedProjectId":"tansees-9f735"}
+[debug] [2025-11-11T14:57:01.381Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:01.382Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:01.383Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2025-11-11T14:57:01.383Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"tansees-9f735"}
+[debug] [2025-11-11T14:57:02.115Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2025-11-11T14:57:02.115Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_AVAILABLE","suggestedProjectId":"tansees-9f735"}
+[debug] [2025-11-11T14:57:08.743Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:08.744Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:08.744Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2025-11-11T14:57:08.744Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"tansees-9f735","name":"tansees-9f735"}
+[debug] [2025-11-11T14:57:09.650Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2025-11-11T14:57:09.650Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/create_project.global.6199642388734923255"}
+[debug] [2025-11-11T14:57:09.651Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:09.651Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:09.652Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6199642388734923255 [none]
+[debug] [2025-11-11T14:57:10.441Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6199642388734923255 200
+[debug] [2025-11-11T14:57:10.441Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6199642388734923255 {"name":"operations/create_project.global.6199642388734923255"}
+[debug] [2025-11-11T14:57:10.945Z] [Project Creation Poller] Retrying task index 0
+[debug] [2025-11-11T14:57:10.946Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:10.947Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:10.947Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6199642388734923255 [none]
+[debug] [2025-11-11T14:57:11.257Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6199642388734923255 200
+[debug] [2025-11-11T14:57:11.257Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6199642388734923255 {"name":"operations/create_project.global.6199642388734923255","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true,"ready":true},"done":true,"response":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.Project","projectNumber":"586882858383","projectId":"tansees-9f735","lifecycleState":"ACTIVE","name":"tansees-9f735","createTime":"2025-11-11T14:57:10.709131Z"}}
+[debug] [2025-11-11T14:57:11.259Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:11.260Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:11.260Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/tansees-9f735:addFirebase [none]
+[debug] [2025-11-11T14:57:15.368Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/tansees-9f735:addFirebase 200
+[debug] [2025-11-11T14:57:15.369Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/tansees-9f735:addFirebase {"name":"operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx"}
+[debug] [2025-11-11T14:57:15.369Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:15.369Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:15.370Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx [none]
+[debug] [2025-11-11T14:57:20.159Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx 200
+[debug] [2025-11-11T14:57:20.160Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx {"name":"operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx"}
+[debug] [2025-11-11T14:57:20.661Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2025-11-11T14:57:20.663Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:20.663Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:20.664Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx [none]
+[debug] [2025-11-11T14:57:21.354Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx 200
+[debug] [2025-11-11T14:57:21.354Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx {"name":"operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx"}
+[debug] [2025-11-11T14:57:22.355Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2025-11-11T14:57:22.356Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:22.356Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:22.356Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx [none]
+[debug] [2025-11-11T14:57:23.175Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx 200
+[debug] [2025-11-11T14:57:23.176Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx {"name":"operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx"}
+[debug] [2025-11-11T14:57:25.178Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2025-11-11T14:57:25.179Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:25.179Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:25.179Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx [none]
+[debug] [2025-11-11T14:57:26.465Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx 200
+[debug] [2025-11-11T14:57:26.466Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx {"name":"operations/workflows/N2I2OTI4ZWMtOTNjMi00NTA2LTk4ZjQtZWI3YzkzNzc4YTkx","done":true,"response":{"@type":"type.googleapis.com/google.firebase.service.v1beta1.FirebaseProject","projectId":"tansees-9f735","projectNumber":"586882858383","displayName":"tansees-9f735","name":"projects/tansees-9f735","resources":{"hostingSite":"tansees-9f735"}}}
+[info] 
+[info] 🎉🎉🎉 Your Firebase project is ready! 🎉🎉🎉
+[info] 
+[info] Project information:
+[info]    - Project ID: tansees-9f735
+[info]    - Project Name: tansees-9f735
+[info] 
+[info] Firebase console is available at
+[info] https://console.firebase.google.com/project/tansees-9f735/overview
+[info] i  Using project tansees-9f735 (tansees-9f735) 
+[info] 
+=== App Hosting Setup
+[debug] [2025-11-11T14:57:26.506Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:26.506Z] Checked if tokens are valid: true, expires at: 1762876609576
+[debug] [2025-11-11T14:57:26.506Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/tansees-9f735/billingInfo [none]
+[debug] [2025-11-11T14:57:28.993Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/tansees-9f735/billingInfo 200
+[debug] [2025-11-11T14:57:28.996Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/tansees-9f735/billingInfo {"name":"projects/tansees-9f735/billingInfo","projectId":"tansees-9f735","billingAccountName":"","billingEnabled":false}
+[debug] [2025-11-11T14:57:34.014Z] Error: Timed out.
+    at Timeout._onTimeout (/usr/local/lib/node_modules/firebase-tools/lib/utils.js:272:49)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[error] 
+[error] Error: An unexpected error has occurred.

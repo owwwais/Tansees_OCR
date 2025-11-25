@@ -1,0 +1,27 @@
+{
+  "name": "تطبيق OCR العربي",
+  "short_name": "OCR عربي",
+  "description": "تطبيق OCR العربي المتطور لتحويل الصور والمستندات إلى نص قابل للتحرير",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ef8354",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "dir": "rtl",
+  "lang": "ar"
+}

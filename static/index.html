@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تطبيق OCR العربي - تحويل الصور إلى نص</title>
+    <title>تنصيص - تحويل الصور إلى نص</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="تطبيق OCR العربي المتطور لتحويل الصور والمستندات إلى نص قابل للتحرير باستخدام أحدث تقنيات الذكاء الاصطناعي. دعم كامل للغة العربية مع دقة عالية.">
+    <meta name="description" content="تنصيص - تطبيق متطور لتحويل الصور والمستندات إلى نص قابل للتحرير باستخدام أحدث تقنيات الذكاء الاصطناعي. دعم كامل للغة العربية مع دقة عالية.">
     <meta name="keywords" content="OCR, Arabic OCR, تحويل الصور إلى نص, استخراج النص, التعرف البصري على الحروف, تطبيق عربي">
-    <meta name="author" content="OCR العربي">
+    <meta name="author" content="تنصيص - أويس أحمد">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Arabic">
     <meta name="direction" content="rtl">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ocr-arabic.com/">
-    <meta property="og:title" content="تطبيق OCR العربي - تحويل الصور إلى نص">
-    <meta property="og:description" content="تطبيق OCR العربي المتطور لتحويل الصور والمستندات إلى نص قابل للتحرير باستخدام أحدث تقنيات الذكاء الاصطناعي.">
-    <meta property="og:image" content="https://ocr-arabic.com/og-image.jpg">
+    <meta property="og:url" content="https://tansees.owwwais.com/">
+    <meta property="og:title" content="تنصيص - تحويل الصور إلى نص">
+    <meta property="og:description" content="تنصيص - تطبيق متطور لتحويل الصور والمستندات إلى نص قابل للتحرير باستخدام أحدث تقنيات الذكاء الاصطناعي.">
+    <meta property="og:image" content="https://tansees.owwwais.com/og-image.jpg">
     <meta property="og:locale" content="ar_AR">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://ocr-arabic.com/">
-    <meta property="twitter:title" content="تطبيق OCR العربي - تحويل الصور إلى نص">
-    <meta property="twitter:description" content="تطبيق OCR العربي المتطور لتحويل الصور والمستندات إلى نص قابل للتحرير.">
-    <meta property="twitter:image" content="https://ocr-arabic.com/twitter-image.jpg">
+    <meta property="twitter:url" content="https://tansees.owwwais.com/">
+    <meta property="twitter:title" content="تنصيص - تحويل الصور إلى نص">
+    <meta property="twitter:description" content="تنصيص - تطبيق متطور لتحويل الصور والمستندات إلى نص قابل للتحرير.">
+    <meta property="twitter:image" content="https://tansees.owwwais.com/twitter-image.jpg">
     
     <!-- Performance Optimization -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -94,15 +94,11 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
-                <div class="flex items-center space-x-3 space-x-reverse">
-                    <div class="bg-coral p-2 rounded-lg">
-                        <i data-feather="eye" class="w-6 h-6 text-white"></i>
+                <a href="landing.html" class="flex items-center space-x-3 space-x-reverse group">
+                    <div class="p-1 rounded-lg transition-all duration-300 group-hover:bg-gray-100 group-hover:border group-hover:border-gray-200">
+                        <img src="tansees_logo.svg" alt="تنصيص" class="h-10 w-auto">
                     </div>
-                    <div>
-                        <h1 class="text-xl font-bold text-gunmetal">OCR عربي</h1>
-                        <p class="text-xs text-gray-500">استخراج النصوص الذكي</p>
-                    </div>
-                </div>
+                </a>
                 
                 <!-- Navigation Links -->
                 <div class="hidden md:flex items-center space-x-8 space-x-reverse">
@@ -217,7 +213,7 @@
     <footer class="bg-gunmetal border-t border-gray-200 mt-12">
         <div class="container mx-auto px-4 py-8">
             <div class="text-center text-silver">
-                <p>© 2024 تطبيق OCR العربي. جميع الحقوق محفوظة.</p>
+                <p>© 2024 تنصيص. جميع الحقوق محفوظة. | تطوير <a href="https://owwwais.com" target="_blank" class="text-coral hover:underline">أويس أحمد</a></p>
                 <p class="mt-2 text-sm">صُنع باستخدام تقنيات الذكاء الاصطناعي الوكيلي</p>
             </div>
         </div>
@@ -280,7 +276,13 @@
             }
             
             dropZone.addEventListener('drop', handleDrop, false);
-            dropZone.addEventListener('click', () => fileInput.click());
+            dropZone.addEventListener('click', (e) => {
+                // تجنب النقر المزدوج عند النقر على الـ label أو الـ input
+                if (e.target.tagName === 'LABEL' || e.target.tagName === 'INPUT' || e.target.closest('label')) {
+                    return;
+                }
+                fileInput.click();
+            });
             fileInput.addEventListener('change', handleFiles);
             
             function handleDrop(e) {
@@ -291,6 +293,11 @@
             
             function handleFiles(e) {
                 const files = Array.from(e.target.files);
+                
+                // إعادة تعيين قيمة الـ input للسماح برفع نفس الملف مرة أخرى
+                if (e.target && e.target.value) {
+                    setTimeout(() => { e.target.value = ''; }, 0);
+                }
                 
                 // Validate files
                 const validFiles = files.filter(file => {
@@ -365,7 +372,7 @@
                         const formData = new FormData();
                         formData.append('file', file);
                         
-                        const uploadResponse = await fetch('/upload', {
+                        const uploadResponse = await fetch('/api/upload', {
                             method: 'POST',
                             body: formData
                         });
@@ -382,7 +389,7 @@
                         const ocrFormData = new FormData();
                         ocrFormData.append('filename', uploadResult.filename);
                         
-                        const ocrResponse = await fetch('/process-ocr', {
+                        const ocrResponse = await fetch('/api/process-ocr', {
                             method: 'POST',
                             body: ocrFormData
                         });

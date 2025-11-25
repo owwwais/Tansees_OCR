@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تطبيق OCR العربي - استخراج النصوص بذكاء اصطناعي</title>
-    <meta name="description" content="أفضل تطبيق لاستخراج النصوص العربية من الصور والملفات باستخدام الذكاء الاصطناعي. دقة عالية، سرعة فائقة، ودعم كامل للعربية.">
+    <title>تنصيص - استخراج النصوص بذكاء اصطناعي</title>
+    <meta name="description" content="تنصيص - أفضل تطبيق لاستخراج النصوص العربية من الصور والملفات باستخدام الذكاء الاصطناعي. دقة عالية، سرعة فائقة، ودعم كامل للعربية.">
     <meta name="keywords" content="OCR, استخراج النص, الذكاء الاصطناعي, العربية, تحويل الصور إلى نص">
     
     <!-- Tailwind CSS -->
@@ -20,11 +20,11 @@
     <!-- Custom CSS Variables -->
     <style>
         :root {
-            --gunmetal: #2d3142ff;
-            --paynes-gray: #4f5d75ff;
-            --silver: #bfc0c0ff;
+            --gunmetal: #2d3142;
+            --paynes-gray: #4f5d75;
+            --silver: #bfc0c0;
             --white: #ffffffff;
-            --coral: #ef8354ff;
+            --coral: rgb(239, 131, 84);
         }
         
         .bg-gunmetal { background-color: var(--gunmetal); }
@@ -88,15 +88,11 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
-                <div class="flex items-center space-x-3 space-x-reverse">
-                    <div class="bg-coral p-2 rounded-lg">
-                        <i data-feather="eye" class="w-6 h-6 text-white"></i>
+                <a href="landing.html" class="flex items-center space-x-3 space-x-reverse group">
+                    <div class="p-1 rounded-lg transition-all duration-300 group-hover:bg-gray-100 group-hover:border group-hover:border-gray-200">
+                        <img src="tansees_logo.svg" alt="تنصيص" class="h-10 w-auto">
                     </div>
-                    <div>
-                        <h1 class="text-xl font-bold text-gunmetal">OCR عربي</h1>
-                        <p class="text-xs text-gray-500">استخراج النصوص الذكي</p>
-                    </div>
-                </div>
+                </a>
                 
                 <!-- Navigation Links -->
                 <div class="hidden md:flex items-center space-x-8 space-x-reverse">
@@ -521,12 +517,8 @@
                 <!-- Company Info -->
                 <div class="md:col-span-2">
                     <div class="flex items-center space-x-3 space-x-reverse mb-6">
-                        <div class="bg-coral p-2 rounded-lg">
-                            <i data-feather="eye" class="w-6 h-6 text-white"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold">OCR عربي</h3>
-                            <p class="text-gray-400">استخراج النصوص الذكي</p>
+                        <div class="p-1 rounded-lg bg-white bg-opacity-10">
+                            <img src="tansees_logo.svg" alt="تنصيص" class="h-12 w-auto brightness-0 invert">
                         </div>
                     </div>
                     <p class="text-gray-400 leading-relaxed max-w-md mb-6">
@@ -564,15 +556,11 @@
                     <ul class="space-y-3">
                         <li class="flex items-center space-x-3 space-x-reverse text-gray-400">
                             <i data-feather="mail" class="w-5 h-5 text-coral"></i>
-                            <span>info@ocr-arabic.com</span>
+                            <span>info@owwwais.com</span>
                         </li>
                         <li class="flex items-center space-x-3 space-x-reverse text-gray-400">
-                            <i data-feather="phone" class="w-5 h-5 text-coral"></i>
-                            <span>+966 12 345 6789</span>
-                        </li>
-                        <li class="flex items-center space-x-3 space-x-reverse text-gray-400">
-                            <i data-feather="map-pin" class="w-5 h-5 text-coral"></i>
-                            <span>الرياض، المملكة العربية السعودية</span>
+                            <i data-feather="globe" class="w-5 h-5 text-coral"></i>
+                            <a href="https://owwwais.com" target="_blank" class="hover:text-coral transition-colors">owwwais.com</a>
                         </li>
                     </ul>
                 </div>
@@ -581,7 +569,7 @@
             <!-- Bottom Bar -->
             <div class="border-t border-paynes-gray pt-8 text-center">
                 <p class="text-gray-400">
-                    &copy; 2024 OCR عربي. جميع الحقوق محفوظة.
+                    &copy; 2024 تنصيص. جميع الحقوق محفوظة. | تطوير <a href="https://owwwais.com" target="_blank" class="text-coral hover:underline">أويس أحمد</a>
                 </p>
             </div>
         </div>

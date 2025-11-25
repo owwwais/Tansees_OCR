@@ -74,7 +74,7 @@ arabic OCR/
   command = "echo 'Build completed'"
 
 [build.environment]
-  PYTHON_VERSION = "3.11"         # إصدار Python
+  PYTHON_VERSION = "3.13"         # إصدار Python
 
 [[redirects]]
   from = "/api/*"
@@ -90,7 +90,7 @@ arabic OCR/
 #### `runtime.txt`
 يحدد إصدار Python المستخدم:
 ```
-python-3.11
+3.13
 ```
 
 #### `.gitignore`

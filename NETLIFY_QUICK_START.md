@@ -39,7 +39,7 @@ git add .
 git commit -m "Deploy to Netlify"
 
 # أنشئ مستودع جديد على GitHub أولاً، ثم:
-git remote add origin https://github.com/YOUR_USERNAME/arabic-ocr.git
+git remote add origin https://github.com/owwwais/Tansees.git
 git branch -M main
 git push -u origin main
 ```

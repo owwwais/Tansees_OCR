@@ -73,6 +73,18 @@ async def privacy_page():
     with open("static/privacy.html", "r", encoding="utf-8") as f:
         return HTMLResponse(content=f.read())
 
+@app.get("/tansees_logo.svg")
+async def tansees_logo():
+    """شعار تنصيص"""
+    from fastapi.responses import FileResponse
+    return FileResponse("static/tansees_logo.svg", media_type="image/svg+xml")
+
+@app.get("/owwwais_logo.svg")
+async def owwwais_logo():
+    """شعار المطور"""
+    from fastapi.responses import FileResponse
+    return FileResponse("static/owwwais_logo.svg", media_type="image/svg+xml")
+
 @app.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
     """رفع ملف للمعالجة"""
