@@ -146,13 +146,6 @@
                         جرب الآن
                     </a>
 
-                    <!-- Install App Button (Hidden by default) -->
-                    <button id="installAppBtnLanding"
-                        class="hidden items-center justify-center space-x-2 space-x-reverse bg-coral hover:bg-[#e57345] text-white px-4 py-2 rounded-xl font-medium text-sm transition-all shadow-sm">
-                        <i data-feather="download-cloud" class="w-4 h-4"></i>
-                        <span class="hidden sm:inline">تثبيت التطبيق</span>
-                    </button>
-
                     <!-- Mobile Menu Button -->
                     <button id="mobileMenuBtn" class="md:hidden text-gunmetal">
                         <i data-feather="menu" class="w-6 h-6"></i>
@@ -593,6 +586,40 @@
         </div>
     </section>
 
+    <!-- Custom PWA Install Popup Banner -->
+    <div id="pwa-install-popup"
+        class="fixed bottom-0 left-0 right-0 z-[100] transform translate-y-full opacity-0 transition-all duration-500 ease-in-out p-4 flex justify-center pb-6 sm:pb-8">
+        <div
+            class="bg-white/95 backdrop-blur-xl shadow-2xl border border-gray-100 rounded-2xl w-full max-w-sm sm:max-w-md p-5 flex flex-col gap-4 relative overflow-hidden">
+            <!-- decorative background elements -->
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-coral/10 rounded-full blur-2xl"></div>
+
+            <button id="pwa-dismiss-btn"
+                class="absolute top-3 left-3 text-gray-400 hover:text-gray-600 transition-colors p-1 bg-gray-50 rounded-full">
+                <i data-feather="x" class="w-4 h-4"></i>
+            </button>
+
+            <div class="flex items-center gap-4">
+                <div
+                    class="bg-gradient-to-br from-gray-50 to-gray-100 p-2 rounded-xl shadow-inner border border-gray-200/50 relative z-10 w-14 h-14 flex-shrink-0 flex items-center justify-center">
+                    <img src="/static/icon-192x192.png" alt="Icon" class="w-10 h-10 object-contain drop-shadow-sm"
+                        onerror="this.src='/favicon.ico';">
+                </div>
+                <div class="flex-1 relative z-10 text-right pr-1 pt-1">
+                    <h4 class="font-bold text-gunmetal text-base sm:text-lg mb-0.5">ثبّت التطبيق</h4>
+                    <p class="text-xs sm:text-sm text-gray-500 leading-tight">للوصول السريع واستخدام الميزات المتقدمة
+                        بسهولة</p>
+                </div>
+            </div>
+
+            <button id="pwa-install-btn"
+                class="w-full bg-gunmetal hover:bg-paynes-gray text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-md hover:shadow-lg relative z-10 mt-1">
+                <i data-feather="download-cloud" class="w-4 h-4"></i>
+                <span>تثبيت الآن</span>
+            </button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-gunmetal text-white py-16">
         <div class="container mx-auto px-4">
@@ -686,39 +713,60 @@
             });
         }
 
-        // PWA Install Prompt Logic
+        // Custom PWA Install Popup Logic
         let deferredPrompt;
-        const installAppBtnLanding = document.getElementById('installAppBtnLanding');
+        const pwaPopup = document.getElementById('pwa-install-popup');
+        const installBtn = document.getElementById('pwa-install-btn');
+        const dismissBtn = document.getElementById('pwa-dismiss-btn');
+
+        // Check if user previously dismissed
+        const pwaDismissed = localStorage.getItem('pwaPromptDismissed');
 
         window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
             e.preventDefault();
+            // Stash the event so it can be triggered later.
             deferredPrompt = e;
-            if (installAppBtnLanding) {
-                installAppBtnLanding.classList.remove('hidden');
-                installAppBtnLanding.classList.add('flex');
-                // Re-render icons if needed
-                feather.replace();
+            // Update UI notify the user they can install the PWA if not dismissed
+            if (pwaPopup && !pwaDismissed) {
+                // slight delay to let the UI settle
+                setTimeout(() => {
+                    pwaPopup.classList.remove('translate-y-full', 'opacity-0');
+                }, 1500);
             }
         });
 
-        if (installAppBtnLanding) {
-            installAppBtnLanding.addEventListener('click', async () => {
-                installAppBtnLanding.classList.add('hidden');
-                installAppBtnLanding.classList.remove('flex');
+        if (installBtn) {
+            installBtn.addEventListener('click', async () => {
+                // Hide the app provided install promotion
+                if (pwaPopup) pwaPopup.classList.add('translate-y-full', 'opacity-0');
+
+                // Show the install prompt
                 if (deferredPrompt) {
                     deferredPrompt.prompt();
+                    // Wait for the user to respond to the prompt
                     const { outcome } = await deferredPrompt.userChoice;
                     console.log(`User response to the install prompt: ${outcome}`);
+                    if (outcome === 'accepted') {
+                        localStorage.setItem('pwaPromptDismissed', 'true');
+                    }
+                    // We've used the prompt, and can't use it again, throw it away
                     deferredPrompt = null;
                 }
             });
         }
 
+        if (dismissBtn && pwaPopup) {
+            dismissBtn.addEventListener('click', () => {
+                pwaPopup.classList.add('translate-y-full', 'opacity-0');
+                localStorage.setItem('pwaPromptDismissed', 'true');
+            });
+        }
+
         window.addEventListener('appinstalled', () => {
-            if (installAppBtnLanding) {
-                installAppBtnLanding.classList.add('hidden');
-                installAppBtnLanding.classList.remove('flex');
-            }
+            // Hide the app-provided install promotion
+            if (pwaPopup) pwaPopup.classList.add('translate-y-full', 'opacity-0');
+            // Clear the deferredPrompt so it can be garbage collected
             deferredPrompt = null;
             console.log('PWA was installed');
         });

@@ -138,13 +138,6 @@
                     <img src="tansees_logo.svg" alt="تنصيص"
                         class="h-8 lg:h-9 w-auto opacity-90 group-hover:opacity-100 transition-opacity">
                 </a>
-
-                <!-- Install App Button (Hidden by default) -->
-                <button id="installAppBtn"
-                    class="hidden items-center justify-center space-x-2 space-x-reverse bg-coral hover:bg-[#e57345] text-white px-4 py-2 rounded-lg font-medium text-sm transition-all shadow-sm">
-                    <i data-feather="download-cloud" class="w-4 h-4"></i>
-                    <span>تثبيت التطبيق</span>
-                </button>
             </div>
         </div>
     </nav>
@@ -158,28 +151,30 @@
         </section>
 
         <!-- Upload Section -->
-        <section class="mb-12 relative" data-aos="fade-up" data-aos-delay="100">
-            <div class="bg-white rounded-2xl shadow-sm p-8 max-w-4xl mx-auto border border-gray-100">
+        <section class="mb-12 relative px-2 sm:px-0" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-8 max-w-4xl mx-auto border border-gray-100">
                 <div id="dropZone"
-                    class="drop-zone border-2 border-dashed border-gray-300 rounded-xl p-16 text-center cursor-pointer transition-all duration-300 hover:border-coral bg-gray-50/50 hover:bg-gray-50">
+                    class="drop-zone border-2 border-dashed border-gray-300 rounded-xl p-8 sm:p-16 text-center cursor-pointer transition-all duration-300 hover:border-coral bg-gray-50/50 hover:bg-gray-50 flex flex-col items-center justify-center">
                     <div class="mx-auto w-16 h-16 mb-6 text-coral animate-float bg-coral/10 p-4 rounded-full">
                         <i data-feather="upload-cloud" class="w-full h-full"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gunmetal mb-2">اسحب وأسقط ملفاتك هنا</h3>
                     <p class="text-gray-500 mb-6 text-sm">الصيغ المدعومة: JPG, PNG, PDF (الحد الأقصى ١٠ ميجابايت)</p>
-                    <!-- Desktop/Default File Input Label -->
-                    <label for="fileInput"
-                        class="inline-flex items-center justify-center gap-2 bg-gunmetal text-white px-6 py-3 rounded-lg cursor-pointer hover:bg-paynes-gray transition-colors font-medium w-full sm:w-auto mt-4 sm:mt-0">
-                        <i data-feather="folder-plus" class="w-4 h-4"></i>
-                        <span>تصفح الملفات</span>
-                    </label>
+                    <div class="flex flex-col sm:flex-row gap-3 w-full justify-center mt-2">
+                        <!-- Desktop/Default File Input Label -->
+                        <label for="fileInput"
+                            class="inline-flex items-center justify-center gap-2 bg-gunmetal text-white px-6 py-3 rounded-lg cursor-pointer hover:bg-paynes-gray transition-colors font-medium w-full sm:w-auto shadow-sm">
+                            <i data-feather="folder-plus" class="w-4 h-4"></i>
+                            <span>تصفح الملفات</span>
+                        </label>
 
-                    <!-- Mobile Camera Input Label (Hidden on small screens) -->
-                    <label for="cameraInput"
-                        class="inline-flex sm:hidden items-center justify-center gap-2 bg-coral text-white px-6 py-3 rounded-lg cursor-pointer hover:bg-[#e57345] transition-colors font-medium w-full mt-3 shadow-md">
-                        <i data-feather="camera" class="w-4 h-4"></i>
-                        <span>التقاط صورة</span>
-                    </label>
+                        <!-- Mobile Camera Input Label (Hidden on small screens) -->
+                        <label for="cameraInput"
+                            class="inline-flex sm:hidden items-center justify-center gap-2 bg-coral text-white px-6 py-3 rounded-lg cursor-pointer hover:bg-[#e57345] transition-colors font-medium w-full shadow-sm">
+                            <i data-feather="camera" class="w-4 h-4"></i>
+                            <span>التقاط صورة</span>
+                        </label>
+                    </div>
 
                     <input id="fileInput" type="file" class="hidden" accept=".jpg,.jpeg,.png,.pdf" multiple>
                     <input id="cameraInput" type="file" class="hidden" accept="image/*" capture="environment">
@@ -211,23 +206,23 @@
         </section>
 
         <!-- Output Section -->
-        <section class="mb-12 relative" data-aos="fade-up" data-aos-delay="200">
-            <div class="bg-white rounded-2xl shadow-sm p-8 max-w-4xl mx-auto border border-gray-100">
+        <section class="mb-12 relative px-2 sm:px-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-8 max-w-4xl mx-auto border border-gray-100">
                 <div
                     class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4 pb-4 border-b border-gray-100">
                     <h3 class="text-xl font-bold text-gunmetal flex items-center gap-2">
                         <i data-feather="file-text" class="text-gray-400 w-5 h-5"></i>
                         النص المستخرج
                     </h3>
-                    <div class="flex space-x-2 space-x-reverse">
+                    <div class="flex flex-wrap sm:flex-nowrap gap-2 w-full sm:w-auto justify-end">
                         <button id="copyButton"
-                            class="flex items-center space-x-2 space-x-reverse bg-gray-50 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed border border-gray-200 text-sm font-medium"
+                            class="flex-1 sm:flex-none items-center justify-center space-x-2 space-x-reverse bg-gray-50 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed border border-gray-200 text-sm font-medium flex"
                             disabled>
                             <i data-feather="copy" class="w-4 h-4"></i>
                             <span>نسخ</span>
                         </button>
                         <button id="downloadButton"
-                            class="flex items-center space-x-2 space-x-reverse bg-coral text-white px-4 py-2 rounded-lg hover:bg-[#e57345] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm font-medium"
+                            class="flex-1 sm:flex-none items-center justify-center space-x-2 space-x-reverse bg-coral text-white px-4 py-2 rounded-lg hover:bg-[#e57345] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm font-medium flex"
                             disabled>
                             <i data-feather="download" class="w-4 h-4"></i>
                             <span>تحميل</span>
@@ -307,6 +302,38 @@
         </section>
     </main>
 
+    <!-- Custom PWA Install Popup Banner -->
+    <div id="pwa-install-popup"
+        class="fixed bottom-0 left-0 right-0 z-[100] transform translate-y-full opacity-0 transition-all duration-500 ease-in-out p-4 flex justify-center pb-6 sm:pb-8">
+        <div
+            class="bg-white/95 backdrop-blur-xl shadow-2xl border border-gray-100 rounded-2xl w-full max-w-sm sm:max-w-md p-5 flex flex-col gap-4 relative overflow-hidden">
+            <!-- decorative background elements -->
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-coral/10 rounded-full blur-2xl"></div>
+
+            <button id="pwa-dismiss-btn"
+                class="absolute top-3 left-3 text-gray-400 hover:text-gray-600 transition-colors p-1 bg-gray-50 rounded-full">
+                <i data-feather="x" class="w-4 h-4"></i>
+            </button>
+
+            <div class="flex items-center gap-4">
+                <div
+                    class="bg-gradient-to-br from-gray-50 to-gray-100 p-2 rounded-xl shadow-inner border border-gray-200/50 relative z-10 w-14 h-14 flex-shrink-0 flex items-center justify-center">
+                    <img src="/static/icon-192x192.png" alt="Icon" class="w-10 h-10 object-contain drop-shadow-sm">
+                </div>
+                <div class="flex-1 relative z-10 text-right pr-1 pt-1">
+                    <h4 class="font-bold text-gunmetal text-base sm:text-lg mb-0.5">ثبّت التطبيق</h4>
+                    <p class="text-xs sm:text-sm text-gray-500 leading-tight">للوصول السريع واستخدام الكاميرا بسهولة</p>
+                </div>
+            </div>
+
+            <button id="pwa-install-btn"
+                class="w-full bg-gunmetal hover:bg-paynes-gray text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-md hover:shadow-lg relative z-10 mt-1">
+                <i data-feather="download-cloud" class="w-4 h-4"></i>
+                <span>تثبيت الآن</span>
+            </button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-gunmetal border-t border-gray-200 mt-12">
         <div class="container mx-auto px-4 py-8">
@@ -338,43 +365,59 @@
             });
         }
 
-        // PWA Install Prompt Logic
+        // Custom PWA Install Popup Logic
         let deferredPrompt;
-        const installAppBtn = document.getElementById('installAppBtn');
+        const pwaPopup = document.getElementById('pwa-install-popup');
+        const installBtn = document.getElementById('pwa-install-btn');
+        const dismissBtn = document.getElementById('pwa-dismiss-btn');
+
+        // Check if user previously dismissed
+        const pwaDismissed = localStorage.getItem('pwaPromptDismissed');
 
         window.addEventListener('beforeinstallprompt', (e) => {
             // Prevent the mini-infobar from appearing on mobile
             e.preventDefault();
             // Stash the event so it can be triggered later.
             deferredPrompt = e;
-            // Update UI notify the user they can install the PWA
-            if (installAppBtn) installAppBtn.classList.remove('hidden');
-            if (installAppBtn) installAppBtn.classList.add('flex');
-            // Re-render icons since the button was hidden during initial load
-            feather.replace();
+            // Update UI notify the user they can install the PWA if not dismissed
+            if (pwaPopup && !pwaDismissed) {
+                // slight delay to let the UI settle
+                setTimeout(() => {
+                    pwaPopup.classList.remove('translate-y-full', 'opacity-0');
+                }, 1500);
+            }
         });
 
-        if (installAppBtn) {
-            installAppBtn.addEventListener('click', async () => {
+        if (installBtn) {
+            installBtn.addEventListener('click', async () => {
                 // Hide the app provided install promotion
-                installAppBtn.classList.add('hidden');
-                installAppBtn.classList.remove('flex');
+                if (pwaPopup) pwaPopup.classList.add('translate-y-full', 'opacity-0');
+
                 // Show the install prompt
                 if (deferredPrompt) {
                     deferredPrompt.prompt();
                     // Wait for the user to respond to the prompt
                     const { outcome } = await deferredPrompt.userChoice;
                     console.log(`User response to the install prompt: ${outcome}`);
+                    if (outcome === 'accepted') {
+                        localStorage.setItem('pwaPromptDismissed', 'true');
+                    }
                     // We've used the prompt, and can't use it again, throw it away
                     deferredPrompt = null;
                 }
             });
         }
 
+        if (dismissBtn && pwaPopup) {
+            dismissBtn.addEventListener('click', () => {
+                pwaPopup.classList.add('translate-y-full', 'opacity-0');
+                localStorage.setItem('pwaPromptDismissed', 'true');
+            });
+        }
+
         window.addEventListener('appinstalled', () => {
             // Hide the app-provided install promotion
-            if (installAppBtn) installAppBtn.classList.add('hidden');
-            if (installAppBtn) installAppBtn.classList.remove('flex');
+            if (pwaPopup) pwaPopup.classList.add('translate-y-full', 'opacity-0');
             // Clear the deferredPrompt so it can be garbage collected
             deferredPrompt = null;
             console.log('PWA was installed');
