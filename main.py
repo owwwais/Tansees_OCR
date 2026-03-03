@@ -85,6 +85,12 @@ async def owwwais_logo():
     from fastapi.responses import FileResponse
     return FileResponse("static/owwwais_logo.svg", media_type="image/svg+xml")
 
+@app.get("/sw.js")
+async def service_worker():
+    """تقديم ملف Service Worker"""
+    from fastapi.responses import FileResponse
+    return FileResponse("static/sw.js", media_type="application/javascript")
+
 @app.post("/api/upload")
 async def upload_file(file: UploadFile = File(...)):
     """رفع ملف للمعالجة"""

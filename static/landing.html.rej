@@ -1,0 +1,19 @@
+@@ -702,18 +702,18 @@
+         });
+ 
+         // Header Background on Scroll
+         window.addEventListener('scroll', () => {
+             const nav = document.getElementById('mainNav');
+             const navInner = nav.querySelector('div > div');
+             if (window.scrollY > 50) {
+                 nav.classList.add('top-0');
+                 nav.classList.remove('top-6');
+                 navInner.classList.remove('rounded-full');
+                 navInner.classList.add('rounded-b-2xl', 'rounded-t-none', 'shadow-md');
+             } else {
+                 nav.classList.add('top-6');
+                 nav.classList.remove('top-0');
+                 navInner.classList.add('rounded-full');
+                 navInner.classList.remove('rounded-b-2xl', 'rounded-t-none', 'shadow-md');
+             }
+         });

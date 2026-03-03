@@ -1,0 +1,11 @@
+--- static/landing.html
++++ static/landing.html
+@@ -189,7 +189,7 @@
+                         <div
+                             class="absolute -inset-1 bg-gradient-to-r from-coral to-paynes-gray rounded-2xl blur opacity-20">
+                         </div>
+-                        <div class="relative rounded-xl overflow-hidden bg-white">
++                        <div class="relative rounded-xl overflow-hidden bg-white flex items-center justify-center p-4 h-[400px]">
+                             <img src="/static/animated_hero.svg" alt="تنصيص استخراج النصوص"
+                                 class="w-full h-auto drop-shadow-sm">
+                         </div>

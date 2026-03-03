@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سياسة الخصوصية - تنصيص</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -25,81 +26,106 @@
             }
         }
     </script>
-    
+
     <!-- Google Fonts - Cairo for Arabic -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
-    
+
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
     <style>
         * {
             font-family: 'Cairo', 'Noto Sans Arabic', sans-serif;
         }
-        
+
         .gradient-bg {
             background: linear-gradient(135deg, #2F2F3A 0%, #4a4a5a 100%);
         }
-        
+
         .coral-gradient {
             background: linear-gradient(135deg, #ff6a50 0%, #ff8a70 100%);
         }
-        
+
         .scroll-smooth {
             scroll-behavior: smooth;
         }
-        
+
         .privacy-section {
             scroll-margin-top: 2rem;
         }
     </style>
 </head>
+
 <body class="bg-soft-white text-gunmetal font-arabic scroll-smooth">
-    <!-- Navigation Bar -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+    <!-- Navigation Header -->
+    <nav class="fixed top-4 w-full z-50 transition-all duration-300" id="mainNav">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div
+                class="flex justify-between items-center h-16 bg-white/90 backdrop-blur-md shadow-sm border border-gray-100 rounded-2xl px-4 lg:px-6">
                 <!-- Logo -->
                 <a href="landing.html" class="flex items-center space-x-3 space-x-reverse group">
-                    <div class="p-1 rounded-lg transition-all duration-300 group-hover:bg-gray-100 group-hover:border group-hover:border-gray-200">
-                        <img src="tansees_logo.svg" alt="تنصيص" class="h-10 w-auto">
-                    </div>
+                    <img src="tansees_logo.svg" alt="تنصيص"
+                        class="h-8 lg:h-9 w-auto opacity-90 group-hover:opacity-100 transition-opacity">
                 </a>
 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="landing.html" class="text-gunmetal hover:text-coral transition-colors duration-300 font-medium">الرئيسية</a>
-                    <a href="index.html" class="text-gunmetal hover:text-coral transition-colors duration-300 font-medium">التطبيق</a>
-                    <a href="about.html" class="text-gunmetal hover:text-coral transition-colors duration-300 font-medium">من نحن</a>
-                    <a href="privacy.html" class="text-coral font-bold">سياسة الخصوصية</a>
+                <!-- Navigation Links (Pill Style) -->
+                <div
+                    class="hidden md:flex items-center space-x-1 space-x-reverse bg-gray-50 rounded-full p-1 border border-gray-100">
+                    <a href="landing.html"
+                        class="text-gunmetal hover:text-coral hover:bg-white/50 px-4 py-1.5 rounded-full text-sm font-medium transition-all">الرئيسية</a>
+                    <a href="index.html"
+                        class="text-gunmetal hover:text-coral hover:bg-white/50 px-4 py-1.5 rounded-full text-sm font-medium transition-all">التطبيق</a>
+                    <a href="about.html"
+                        class="text-gunmetal hover:text-coral hover:bg-white/50 px-4 py-1.5 rounded-full text-sm font-medium transition-all">من
+                        نحن</a>
+                    <a href="privacy.html"
+                        class="bg-white shadow-sm text-coral font-bold px-4 py-1.5 rounded-full text-sm transition-all">سياسة
+                        الخصوصية</a>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button id="mobileMenuBtn" class="text-gunmetal hover:text-coral focus:outline-none focus:text-coral transition-colors duration-300">
+                <!-- CTA Button -->
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <a href="index.html"
+                        class="hidden sm:inline-flex bg-gunmetal hover:bg-paynes-gray text-white px-5 py-2 rounded-xl font-semibold text-sm transition-all btn-hover-lift">
+                        جرب الآن
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden text-gunmetal p-2 focus:outline-none">
                         <i data-feather="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
             </div>
-        </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="md:hidden bg-white border-t border-gray-200 hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="landing.html" class="block px-3 py-2 text-gunmetal hover:text-coral transition-colors duration-300 font-medium">الرئيسية</a>
-                <a href="index.html" class="block px-3 py-2 text-gunmetal hover:text-coral transition-colors duration-300 font-medium">التطبيق</a>
-                <a href="about.html" class="block px-3 py-2 text-gunmetal hover:text-coral transition-colors duration-300 font-medium">من نحن</a>
-                <a href="privacy.html" class="block px-3 py-2 text-coral font-bold">سياسة الخصوصية</a>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu"
+                class="md:hidden hidden bg-white/95 backdrop-blur-md border border-gray-100 rounded-2xl mt-2 p-4 shadow-lg absolute w-[calc(100%-2rem)] left-4 right-4 max-h-[80vh] overflow-y-auto">
+                <div class="flex flex-col space-y-2">
+                    <a href="landing.html"
+                        class="text-gunmetal hover:text-coral hover:bg-gray-50 transition-colors font-medium px-4 py-3 rounded-xl border border-transparent hover:border-gray-100">الرئيسية</a>
+                    <a href="index.html"
+                        class="text-gunmetal hover:text-coral hover:bg-gray-50 transition-colors font-medium px-4 py-3 rounded-xl border border-transparent hover:border-gray-100">التطبيق</a>
+                    <a href="about.html"
+                        class="text-gunmetal hover:text-coral hover:bg-gray-50 transition-colors font-medium px-4 py-3 rounded-xl border border-transparent hover:border-gray-100">من
+                        نحن</a>
+                    <a href="privacy.html"
+                        class="bg-coral/5 text-coral font-bold px-4 py-3 rounded-xl border border-coral/10">سياسة
+                        الخصوصية</a>
+                    <div class="h-px bg-gray-100 my-2"></div>
+                    <a href="index.html"
+                        class="bg-gunmetal text-white text-center font-bold px-4 py-3 rounded-xl hover:bg-paynes-gray transition-colors">جرب
+                        التطبيق مجاناً</a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="gradient-bg text-white py-20">
+    <section class="gradient-bg text-white pt-36 pb-20 mt-6 relative z-0">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
             <div class="mb-6">
                 <i data-feather="shield" class="w-16 h-16 mx-auto text-coral mb-4"></i>
@@ -116,7 +142,7 @@
 
     <!-- Privacy Policy Content -->
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        
+
         <!-- Table of Contents -->
         <div class="bg-white rounded-2xl shadow-lg p-8 mb-12" data-aos="fade-up">
             <h2 class="text-2xl font-bold text-gunmetal mb-6 flex items-center">
@@ -124,27 +150,33 @@
                 المحتويات
             </h2>
             <div class="grid md:grid-cols-2 gap-4">
-                <a href="#data-collection" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
+                <a href="#data-collection"
+                    class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
                     <i data-feather="database" class="w-5 h-5 text-coral ml-3"></i>
                     <span class="text-gunmetal hover:text-coral">جمع البيانات</span>
                 </a>
-                <a href="#data-usage" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
+                <a href="#data-usage"
+                    class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
                     <i data-feather="activity" class="w-5 h-5 text-coral ml-3"></i>
                     <span class="text-gunmetal hover:text-coral">استخدام البيانات</span>
                 </a>
-                <a href="#data-storage" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
+                <a href="#data-storage"
+                    class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
                     <i data-feather="server" class="w-5 h-5 text-coral ml-3"></i>
                     <span class="text-gunmetal hover:text-coral">تخزين البيانات</span>
                 </a>
-                <a href="#data-sharing" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
+                <a href="#data-sharing"
+                    class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
                     <i data-feather="share-2" class="w-5 h-5 text-coral ml-3"></i>
                     <span class="text-gunmetal hover:text-coral">مشاركة البيانات</span>
                 </a>
-                <a href="#user-rights" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
+                <a href="#user-rights"
+                    class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
                     <i data-feather="user-check" class="w-5 h-5 text-coral ml-3"></i>
                     <span class="text-gunmetal hover:text-coral">حقوق المستخدم</span>
                 </a>
-                <a href="#contact" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
+                <a href="#contact"
+                    class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300">
                     <i data-feather="mail" class="w-5 h-5 text-coral ml-3"></i>
                     <span class="text-gunmetal hover:text-coral">التواصل</span>
                 </a>
@@ -152,7 +184,7 @@
         </div>
 
         <!-- Privacy Policy Sections -->
-        
+
         <!-- Introduction -->
         <section class="bg-white rounded-2xl shadow-lg p-8 mb-8" data-aos="fade-up">
             <h2 class="text-2xl font-bold text-gunmetal mb-6 flex items-center">
@@ -161,18 +193,19 @@
             </h2>
             <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                 <p class="mb-4">
-                    مرحباً بك في تنصيص. نحن نقدر ثقتك بنا ونلتزم بحماية خصوصيتك وأمان معلوماتك الشخصية. 
+                    مرحباً بك في تنصيص. نحن نقدر ثقتك بنا ونلتزم بحماية خصوصيتك وأمان معلوماتك الشخصية.
                     تشرح هذه السياسة كيفية جمعنا واستخدامنا وحمايتنا للمعلومات التي تقدمها لنا عند استخدام خدماتنا.
                 </p>
                 <p>
-                    من خلال استخدام تنصيص، فإنك توافق على الممارسات الموضحة في هذه السياسة. 
+                    من خلال استخدام تنصيص، فإنك توافق على الممارسات الموضحة في هذه السياسة.
                     إذا كانت لديك أي أسئلة أو مخاوف، يرجى التواصل معنا.
                 </p>
             </div>
         </section>
 
         <!-- Data Collection -->
-        <section id="data-collection" class="bg-white rounded-2xl shadow-lg p-8 mb-8 privacy-section" data-aos="fade-up">
+        <section id="data-collection" class="bg-white rounded-2xl shadow-lg p-8 mb-8 privacy-section"
+            data-aos="fade-up">
             <h2 class="text-2xl font-bold text-gunmetal mb-6 flex items-center">
                 <i data-feather="database" class="w-6 h-6 text-coral ml-3"></i>
                 البيانات التي نجمعها
@@ -181,23 +214,23 @@
                 <div class="border-r-4 border-coral pr-6">
                     <h3 class="text-xl font-semibold text-gunmetal mb-3">الملفات المرفوعة</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        نجمع الصور والمستندات التي ترفعها لمعالجتها باستخدام تقنية OCR. 
+                        نجمع الصور والمستندات التي ترفعها لمعالجتها باستخدام تقنية OCR.
                         هذه الملفات ضرورية لتقديم الخدمة ولا يتم تخزينها بشكل دائم على خوادمنا.
                     </p>
                 </div>
-                
+
                 <div class="border-r-4 border-coral pr-6">
                     <h3 class="text-xl font-semibold text-gunmetal mb-3">معلومات الاستخدام</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        نجمع معلومات حول كيفية استخدامك للتطبيق، مثل نوع المتصفح، عنوان IP، 
+                        نجمع معلومات حول كيفية استخدامك للتطبيق، مثل نوع المتصفح، عنوان IP،
                         وأوقات الوصول لتحسين أداء الخدمة وتجربة المستخدم.
                     </p>
                 </div>
-                
+
                 <div class="border-r-4 border-coral pr-6">
                     <h3 class="text-xl font-semibold text-gunmetal mb-3">ملفات تعريف الارتباط</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        نستخدم ملفات تعريف الارتباط الأساسية فقط لضمان عمل التطبيق بشكل صحيح. 
+                        نستخدم ملفات تعريف الارتباط الأساسية فقط لضمان عمل التطبيق بشكل صحيح.
                         لا نستخدم ملفات تعريف الارتباط لأغراض الدعاية أو التتبع.
                     </p>
                 </div>
@@ -220,7 +253,7 @@
                         نستخدم ملفاتك المرفوعة حصرياً لاستخراج النص منها باستخدام تقنية التعرف البصري على الحروف.
                     </p>
                 </div>
-                
+
                 <div class="bg-light-blue rounded-lg p-6">
                     <div class="flex items-center mb-4">
                         <i data-feather="bar-chart-2" class="w-8 h-8 text-coral ml-3"></i>
@@ -230,7 +263,7 @@
                         نحلل بيانات الاستخدام لتحسين أداء التطبيق وإضافة ميزات جديدة تلبي احتياجاتك.
                     </p>
                 </div>
-                
+
                 <div class="bg-light-blue rounded-lg p-6">
                     <div class="flex items-center mb-4">
                         <i data-feather="shield-check" class="w-8 h-8 text-coral ml-3"></i>
@@ -240,7 +273,7 @@
                         نراقب أنماط الاستخدام لاكتشاف ومنع أي نشاط مشبوه أو سوء استخدام للخدمة.
                     </p>
                 </div>
-                
+
                 <div class="bg-light-blue rounded-lg p-6">
                     <div class="flex items-center mb-4">
                         <i data-feather="message-circle" class="w-8 h-8 text-coral ml-3"></i>
@@ -269,7 +302,7 @@
                         جميع الملفات المرفوعة يتم حذفها تلقائياً من خوادمنا خلال 24 ساعة من المعالجة
                     </p>
                 </div>
-                
+
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="border border-gray-200 rounded-lg p-6">
                         <h3 class="text-lg font-semibold text-gunmetal mb-3 flex items-center">
@@ -280,7 +313,7 @@
                             جميع البيانات محمية بتشفير SSL/TLS أثناء النقل وتشفير AES-256 أثناء التخزين المؤقت.
                         </p>
                     </div>
-                    
+
                     <div class="border border-gray-200 rounded-lg p-6">
                         <h3 class="text-lg font-semibold text-gunmetal mb-3 flex items-center">
                             <i data-feather="cloud" class="w-5 h-5 text-coral ml-2"></i>
@@ -309,7 +342,7 @@
                     نحن لا نبيع أو نؤجر أو نشارك معلوماتك الشخصية مع أطراف ثالثة لأغراض تجارية.
                 </p>
             </div>
-            
+
             <h3 class="text-xl font-semibold text-gunmetal mb-4">الاستثناءات المحدودة:</h3>
             <div class="space-y-4">
                 <div class="flex items-start">
@@ -319,15 +352,16 @@
                         <p class="text-gray-700">قد نكشف عن المعلومات إذا طُلب منا ذلك بموجب قانون أو أمر قضائي.</p>
                     </div>
                 </div>
-                
+
                 <div class="flex items-start">
                     <i data-feather="shield" class="w-5 h-5 text-coral mt-1 ml-3 flex-shrink-0"></i>
                     <div>
                         <h4 class="font-semibold text-gunmetal">حماية الحقوق</h4>
-                        <p class="text-gray-700">لحماية حقوقنا أو حقوق المستخدمين الآخرين أو للدفاع ضد المطالبات القانونية.</p>
+                        <p class="text-gray-700">لحماية حقوقنا أو حقوق المستخدمين الآخرين أو للدفاع ضد المطالبات
+                            القانونية.</p>
                     </div>
                 </div>
-                
+
                 <div class="flex items-start">
                     <i data-feather="alert-circle" class="w-5 h-5 text-coral mt-1 ml-3 flex-shrink-0"></i>
                     <div>
@@ -354,7 +388,7 @@
                         يمكنك طلب نسخة من جميع البيانات الشخصية التي نحتفظ بها عنك.
                     </p>
                 </div>
-                
+
                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
                     <div class="flex items-center mb-3">
                         <i data-feather="edit-3" class="w-6 h-6 text-blue-600 ml-3"></i>
@@ -364,7 +398,7 @@
                         يمكنك طلب تصحيح أي معلومات غير دقيقة أو غير مكتملة.
                     </p>
                 </div>
-                
+
                 <div class="bg-red-50 border border-red-200 rounded-lg p-6">
                     <div class="flex items-center mb-3">
                         <i data-feather="trash-2" class="w-6 h-6 text-red-600 ml-3"></i>
@@ -374,7 +408,7 @@
                         يمكنك طلب حذف بياناتك الشخصية في ظروف معينة.
                     </p>
                 </div>
-                
+
                 <div class="bg-purple-50 border border-purple-200 rounded-lg p-6">
                     <div class="flex items-center mb-3">
                         <i data-feather="download" class="w-6 h-6 text-purple-600 ml-3"></i>
@@ -385,11 +419,11 @@
                     </p>
                 </div>
             </div>
-            
+
             <div class="mt-6 bg-gray-50 rounded-lg p-6">
                 <h3 class="text-lg font-semibold text-gunmetal mb-3">كيفية ممارسة حقوقك</h3>
                 <p class="text-gray-700">
-                    لممارسة أي من هذه الحقوق، يرجى التواصل معنا عبر البريد الإلكتروني. 
+                    لممارسة أي من هذه الحقوق، يرجى التواصل معنا عبر البريد الإلكتروني.
                     سنرد على طلبك خلال 30 يوماً من تاريخ استلامه.
                 </p>
             </div>
@@ -411,7 +445,7 @@
                             <p class="text-gray-300">info@owwwais.com</p>
                         </div>
                     </div>
-                    
+
                     <div class="flex items-center">
                         <i data-feather="clock" class="w-6 h-6 text-coral ml-3"></i>
                         <div>
@@ -420,10 +454,10 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="mt-6 p-4 bg-white bg-opacity-10 rounded-lg">
                     <p class="text-sm text-gray-300">
-                        نحن ملتزمون بحماية خصوصيتك والرد على جميع استفساراتك بشكل سريع ومفصل. 
+                        نحن ملتزمون بحماية خصوصيتك والرد على جميع استفساراتك بشكل سريع ومفصل.
                         فريقنا متاح لمساعدتك في فهم سياسة الخصوصية أو ممارسة حقوقك.
                     </p>
                 </div>
@@ -446,7 +480,8 @@
 
         <!-- Back to Top Button -->
         <div class="fixed bottom-8 left-8 z-50">
-            <button id="backToTop" class="bg-coral hover:bg-red-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible">
+            <button id="backToTop"
+                class="bg-coral hover:bg-red-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible">
                 <i data-feather="arrow-up" class="w-6 h-6"></i>
             </button>
         </div>
@@ -464,7 +499,8 @@
                         </div>
                     </div>
                     <p class="text-gray-300 mb-4 leading-relaxed">
-                        منصة متطورة لتحويل الصور والمستندات إلى نص قابل للتحرير باللغة العربية باستخدام أحدث تقنيات الذكاء الاصطناعي.
+                        منصة متطورة لتحويل الصور والمستندات إلى نص قابل للتحرير باللغة العربية باستخدام أحدث تقنيات
+                        الذكاء الاصطناعي.
                     </p>
                 </div>
 
@@ -472,9 +508,12 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4 text-coral">روابط سريعة</h4>
                     <ul class="space-y-2">
-                        <li><a href="landing.html" class="text-gray-300 hover:text-white transition-colors duration-300">الرئيسية</a></li>
-                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-300">التطبيق</a></li>
-                        <li><a href="about.html" class="text-gray-300 hover:text-white transition-colors duration-300">من نحن</a></li>
+                        <li><a href="landing.html"
+                                class="text-gray-300 hover:text-white transition-colors duration-300">الرئيسية</a></li>
+                        <li><a href="index.html"
+                                class="text-gray-300 hover:text-white transition-colors duration-300">التطبيق</a></li>
+                        <li><a href="about.html"
+                                class="text-gray-300 hover:text-white transition-colors duration-300">من نحن</a></li>
                         <li><a href="privacy.html" class="text-white font-semibold">سياسة الخصوصية</a></li>
                     </ul>
                 </div>
@@ -489,17 +528,19 @@
                         </div>
                         <div class="flex items-center">
                             <i data-feather="globe" class="w-4 h-4 text-coral ml-2"></i>
-                            <a href="https://owwwais.com" target="_blank" class="text-gray-300 text-sm hover:text-coral transition-colors">owwwais.com</a>
+                            <a href="https://owwwais.com" target="_blank"
+                                class="text-gray-300 text-sm hover:text-coral transition-colors">owwwais.com</a>
                         </div>
                     </div>
                 </div>
             </div>
 
             <hr class="border-gray-600 my-8">
-            
+
             <div class="text-center">
                 <p class="text-gray-400">
-                    &copy; 2024 تنصيص. جميع الحقوق محفوظة. | تطوير <a href="https://owwwais.com" target="_blank" class="text-coral hover:underline">أويس أحمد</a>
+                    &copy; 2024 تنصيص. جميع الحقوق محفوظة. | تطوير <a href="https://owwwais.com" target="_blank"
+                        class="text-coral hover:underline">أويس أحمد</a>
                 </p>
             </div>
         </div>
@@ -540,7 +581,7 @@
 
         // Back to Top Button
         const backToTop = document.getElementById('backToTop');
-        
+
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
                 backToTop.classList.remove('opacity-0', 'invisible');
@@ -558,13 +599,28 @@
             });
         });
 
+        // Add scroll listener to modify header
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            const navInner = nav.querySelector('div > div');
+            if (window.scrollY > 50) {
+                navInner.classList.add('shadow-md', 'border-gray-200');
+                navInner.classList.remove('shadow-sm', 'border-gray-100');
+                nav.classList.add('pt-2');
+            } else {
+                navInner.classList.remove('shadow-md', 'border-gray-200');
+                navInner.classList.add('shadow-sm', 'border-gray-100');
+                nav.classList.remove('pt-2');
+            }
+        });
+
         // Add active section highlighting in navigation
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('.privacy-section');
             const navLinks = document.querySelectorAll('a[href^="#"]');
-            
+
             let current = '';
-            
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
@@ -572,7 +628,7 @@
                     current = section.getAttribute('id');
                 }
             });
-            
+
             navLinks.forEach(link => {
                 link.classList.remove('text-coral', 'font-bold');
                 link.classList.add('text-gunmetal');
@@ -584,4 +640,5 @@
         });
     </script>
 </body>
+
 </html>

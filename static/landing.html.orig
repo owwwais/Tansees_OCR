@@ -114,10 +114,10 @@
 
 <body class="font-arabic bg-gray-50" dir="rtl">
     <!-- Navigation Header -->
-    <nav class="fixed top-4 w-full z-50 transition-all duration-300" id="mainNav">
+    <nav class="fixed top-6 w-full z-50 transition-all duration-300" id="mainNav" data-aos="fade-down">
         <div class="container mx-auto px-4 max-w-6xl">
             <div
-                class="flex justify-between items-center h-16 bg-white/90 backdrop-blur-md shadow-sm border border-gray-100 rounded-2xl px-4 lg:px-6">
+                class="flex justify-between items-center h-16 bg-white/95 backdrop-blur-md shadow-sm border border-gray-100 rounded-full px-4 lg:px-6 transition-all duration-300">
                 <!-- Logo -->
                 <a href="landing.html" class="flex items-center space-x-3 space-x-reverse group">
                     <img src="tansees_logo.svg" alt="تنصيص"
@@ -137,21 +137,18 @@
                     <a href="privacy.html"
                         class="text-gunmetal hover:text-coral hover:bg-white/50 px-4 py-1.5 rounded-full text-sm font-medium transition-all">سياسة
                         الخصوصية</a>
+                    <a href="#features"
+                        class="text-gunmetal hover:text-coral hover:bg-white/50 px-4 py-1.5 rounded-full text-sm font-medium transition-all">المميزات</a>
+                    <a href="#pricing"
+                        class="text-gunmetal hover:text-coral hover:bg-white/50 px-4 py-1.5 rounded-full text-sm font-medium transition-all">الأسعار</a>
                 </div>
 
                 <!-- CTA Button -->
                 <div class="flex items-center space-x-4 space-x-reverse">
                     <a href="index.html"
-                        class="hidden sm:inline-flex bg-gunmetal hover:bg-paynes-gray text-white px-5 py-2 rounded-xl font-semibold text-sm transition-all btn-hover-lift">
+                        class="hidden sm:inline-flex bg-gunmetal hover:bg-paynes-gray text-white px-5 py-2 rounded-full font-semibold text-sm transition-all btn-hover-lift">
                         جرب الآن
                     </a>
-
-                    <!-- Install App Button (Hidden by default) -->
-                    <button id="installAppBtnLanding"
-                        class="hidden items-center justify-center space-x-2 space-x-reverse bg-coral hover:bg-[#e57345] text-white px-4 py-2 rounded-xl font-medium text-sm transition-all shadow-sm">
-                        <i data-feather="download-cloud" class="w-4 h-4"></i>
-                        <span class="hidden sm:inline">تثبيت التطبيق</span>
-                    </button>
 
                     <!-- Mobile Menu Button -->
                     <button id="mobileMenuBtn" class="md:hidden text-gunmetal">
@@ -161,85 +158,87 @@
             </div>
 
             <!-- Mobile Menu -->
-            <div id="mobileMenu"
-                class="md:hidden hidden bg-white/95 backdrop-blur-md border border-gray-100 rounded-2xl mt-2 p-4 shadow-lg absolute w-[calc(100%-2rem)] left-4 right-4 max-h-[80vh] overflow-y-auto">
-                <div class="flex flex-col space-y-2">
-                    <a href="landing.html"
-                        class="bg-coral/5 text-coral font-bold px-4 py-3 rounded-xl border border-coral/10">الرئيسية</a>
+            <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100 py-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="landing.html" class="text-coral font-bold px-4 py-2">الرئيسية</a>
                     <a href="index.html"
-                        class="text-gunmetal hover:text-coral hover:bg-gray-50 transition-colors font-medium px-4 py-3 rounded-xl border border-transparent hover:border-gray-100">التطبيق</a>
+                        class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">التطبيق</a>
                     <a href="about.html"
-                        class="text-gunmetal hover:text-coral hover:bg-gray-50 transition-colors font-medium px-4 py-3 rounded-xl border border-transparent hover:border-gray-100">من
-                        نحن</a>
+                        class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">من نحن</a>
                     <a href="privacy.html"
-                        class="text-gunmetal hover:text-coral hover:bg-gray-50 transition-colors font-medium px-4 py-3 rounded-xl border border-transparent hover:border-gray-100">سياسة
+                        class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">سياسة
                         الخصوصية</a>
-                    <div class="h-px bg-gray-100 my-2"></div>
-                    <a href="index.html"
-                        class="bg-gunmetal text-white text-center font-bold px-4 py-3 rounded-xl hover:bg-paynes-gray transition-colors">جرب
-                        التطبيق مجاناً</a>
+                    <a href="#features"
+                        class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">المميزات</a>
+                    <a href="#pricing"
+                        class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">الأسعار</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-gradient relative overflow-hidden pt-20 pb-16">
-        <div class="absolute inset-0 bg-black opacity-5"></div>
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="flex flex-col lg:flex-row items-center min-h-[600px]">
+    <section id="home" class="hero-gradient relative min-h-screen flex items-center pt-28 pb-16">
+        <div class="absolute inset-0 bg-black opacity-[0.03]"></div>
+        <div class="container mx-auto px-4 relative z-10 max-w-7xl">
+            <div class="flex flex-col lg:flex-row-reverse items-center justify-between gap-12 lg:gap-24">
+
+                <!-- Hero Image/Demo -->
+                <div class="w-full lg:w-[45%]" data-aos="fade-right" data-aos-delay="200">
+                    <div class="bg-white rounded-2xl p-4 sm:p-8 shadow-2xl relative">
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-r from-coral to-paynes-gray rounded-2xl blur opacity-20">
+                        </div>
+                        <div class="relative rounded-xl overflow-hidden bg-white flex items-center justify-center p-4 min-h-[300px] lg:h-[400px]">
+                            <img src="/static/animated_hero.svg" alt="تنصيص استخراج النصوص"
+                                class="w-full h-auto drop-shadow-sm">
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Hero Content -->
-                <div class="flex-1 text-white text-center lg:text-right mb-12 lg:mb-0" data-aos="fade-right">
-                    <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                <div class="w-full lg:w-[55%] text-white text-center lg:text-right" data-aos="fade-left">
+                    <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
                         استخراج النصوص
-                        <span class="block text-coral">بذكاء اصطناعي</span>
+                        <span class="block text-coral mt-2">بذكاء اصطناعي</span>
                     </h1>
-                    <p class="text-xl lg:text-2xl mb-8 text-gray-200 leading-relaxed max-w-2xl">
+                    <p class="text-xl lg:text-2xl mb-10 text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
                         حول صورك ومستنداتك إلى نصوص قابلة للتعديل في ثوانٍ معدودة.
                         دقة عالية وسرعة فائقة مع دعم كامل للغة العربية.
                     </p>
 
                     <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
                         <a href="index.html"
-                            class="bg-coral hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all btn-hover-lift inline-flex items-center justify-center space-x-2 space-x-reverse">
+                            class="bg-coral hover:bg-opacity-90 text-white px-8 py-4 rounded-full font-bold text-lg transition-all btn-hover-lift inline-flex items-center justify-center space-x-2 space-x-reverse shadow-lg shadow-coral/30">
                             <i data-feather="play-circle" class="w-6 h-6"></i>
                             <span>جرب مجاناً الآن</span>
                         </a>
                         <a href="#how-it-works"
-                            class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white border-2 border-white border-opacity-30 px-8 py-4 rounded-lg font-bold text-lg transition-all inline-flex items-center justify-center space-x-2 space-x-reverse">
+                            class="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/20 px-8 py-4 rounded-full font-bold text-lg transition-all inline-flex items-center justify-center space-x-2 space-x-reverse">
                             <i data-feather="info" class="w-6 h-6"></i>
                             <span>تعرف على المزيد</span>
                         </a>
                     </div>
 
                     <!-- Stats -->
-                    <div class="grid grid-cols-3 gap-8 max-w-md mx-auto lg:mx-0">
+                    <div class="grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0 border-t border-white/10 pt-8">
                         <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                            <div class="text-3xl font-bold text-coral">99%</div>
-                            <div class="text-sm text-gray-300">دقة الاستخراج</div>
+                            <div class="text-3xl font-bold text-coral mb-1">99%</div>
+                            <div class="text-sm text-gray-400 font-medium">دقة الاستخراج</div>
                         </div>
-                        <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                            <div class="text-3xl font-bold text-coral">10k+</div>
-                            <div class="text-sm text-gray-300">مستخدم راضي</div>
+                        <div class="text-center border-r border-l border-white/10" data-aos="fade-up"
+                            data-aos-delay="200">
+                            <div class="text-3xl font-bold text-coral mb-1">10k+</div>
+                            <div class="text-sm text-gray-400 font-medium">مستخدم راضي</div>
                         </div>
                         <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                            <div class="text-3xl font-bold text-coral">3s</div>
-                            <div class="text-sm text-gray-300">متوسط المعالجة</div>
+                            <div class="text-3xl font-bold text-coral mb-1">3s</div>
+                            <div class="text-sm text-gray-400 font-medium">متوسط المعالجة</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hero Image/Demo -->
-                <div class="flex-1 max-w-lg" data-aos="fade-left" data-aos-delay="200">
-                    <div class="bg-white rounded-2xl p-8 shadow-2xl">
-                        <div
-                            class="relative rounded-xl mb-2 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
-                            <img src="/static/animated_hero.svg" alt="تنصيص استخراج النصوص"
-                                class="w-full h-auto drop-shadow-lg">
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -673,56 +672,6 @@
             offset: 100
         });
 
-        // PWA Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('SW registered on landing: ', registration.scope);
-                    })
-                    .catch(err => {
-                        console.log('SW registration failed: ', err);
-                    });
-            });
-        }
-
-        // PWA Install Prompt Logic
-        let deferredPrompt;
-        const installAppBtnLanding = document.getElementById('installAppBtnLanding');
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            if (installAppBtnLanding) {
-                installAppBtnLanding.classList.remove('hidden');
-                installAppBtnLanding.classList.add('flex');
-                // Re-render icons if needed
-                feather.replace();
-            }
-        });
-
-        if (installAppBtnLanding) {
-            installAppBtnLanding.addEventListener('click', async () => {
-                installAppBtnLanding.classList.add('hidden');
-                installAppBtnLanding.classList.remove('flex');
-                if (deferredPrompt) {
-                    deferredPrompt.prompt();
-                    const { outcome } = await deferredPrompt.userChoice;
-                    console.log(`User response to the install prompt: ${outcome}`);
-                    deferredPrompt = null;
-                }
-            });
-        }
-
-        window.addEventListener('appinstalled', () => {
-            if (installAppBtnLanding) {
-                installAppBtnLanding.classList.add('hidden');
-                installAppBtnLanding.classList.remove('flex');
-            }
-            deferredPrompt = null;
-            console.log('PWA was installed');
-        });
-
         // Initialize Feather Icons
         feather.replace();
 
@@ -757,13 +706,15 @@
             const nav = document.getElementById('mainNav');
             const navInner = nav.querySelector('div > div');
             if (window.scrollY > 50) {
-                navInner.classList.add('shadow-md', 'border-gray-200');
-                navInner.classList.remove('shadow-sm', 'border-gray-100');
-                nav.classList.add('pt-2');
+                nav.classList.add('top-0');
+                nav.classList.remove('top-6');
+                navInner.classList.remove('rounded-full');
+                navInner.classList.add('rounded-b-2xl', 'rounded-t-none', 'shadow-md');
             } else {
-                navInner.classList.remove('shadow-md', 'border-gray-200');
-                navInner.classList.add('shadow-sm', 'border-gray-100');
-                nav.classList.remove('pt-2');
+                nav.classList.add('top-6');
+                nav.classList.remove('top-0');
+                navInner.classList.add('rounded-full');
+                navInner.classList.remove('rounded-b-2xl', 'rounded-t-none', 'shadow-md');
             }
         });
     </script>

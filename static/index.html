@@ -1,57 +1,61 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تنصيص - تحويل الصور إلى نص</title>
-    
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="تنصيص - تطبيق متطور لتحويل الصور والمستندات إلى نص قابل للتحرير باستخدام أحدث تقنيات الذكاء الاصطناعي. دعم كامل للغة العربية مع دقة عالية.">
-    <meta name="keywords" content="OCR, Arabic OCR, تحويل الصور إلى نص, استخراج النص, التعرف البصري على الحروف, تطبيق عربي">
+    <meta name="description"
+        content="تنصيص - تطبيق متطور لتحويل الصور والمستندات إلى نص قابل للتحرير باستخدام أحدث تقنيات الذكاء الاصطناعي. دعم كامل للغة العربية مع دقة عالية.">
+    <meta name="keywords"
+        content="OCR, Arabic OCR, تحويل الصور إلى نص, استخراج النص, التعرف البصري على الحروف, تطبيق عربي">
     <meta name="author" content="تنصيص - أويس أحمد">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Arabic">
     <meta name="direction" content="rtl">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tansees.owwwais.com/">
     <meta property="og:title" content="تنصيص - تحويل الصور إلى نص">
-    <meta property="og:description" content="تنصيص - تطبيق متطور لتحويل الصور والمستندات إلى نص قابل للتحرير باستخدام أحدث تقنيات الذكاء الاصطناعي.">
+    <meta property="og:description"
+        content="تنصيص - تطبيق متطور لتحويل الصور والمستندات إلى نص قابل للتحرير باستخدام أحدث تقنيات الذكاء الاصطناعي.">
     <meta property="og:image" content="https://tansees.owwwais.com/og-image.jpg">
     <meta property="og:locale" content="ar_AR">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://tansees.owwwais.com/">
     <meta property="twitter:title" content="تنصيص - تحويل الصور إلى نص">
     <meta property="twitter:description" content="تنصيص - تطبيق متطور لتحويل الصور والمستندات إلى نص قابل للتحرير.">
     <meta property="twitter:image" content="https://tansees.owwwais.com/twitter-image.jpg">
-    
+
     <!-- Performance Optimization -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://unpkg.com">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <link rel="manifest" href="/static/site.webmanifest">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-        <!-- Tailwind CSS -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-        <!-- Feather Icons -->
+
+    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
-        
-        <!-- AOS Animation Library -->
+
+    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <style>
@@ -62,145 +66,229 @@
             --white: #ffffffff;
             --coral: #ef8354ff;
         }
-        
+
         .drop-zone {
             transition: all 0.3s ease;
         }
+
         .drop-zone.dragover {
             border-color: var(--coral);
             background-color: rgba(239, 131, 84, 0.05);
         }
+
         .progress-bar {
             transition: width 0.3s ease;
             background-color: var(--coral);
         }
-        
-        .bg-coral { background-color: var(--coral); }
-        .hover\:bg-coral-dark:hover { background-color: #e57345; }
-        .text-coral { color: var(--coral); }
-        .hover\:text-coral-dark:hover { color: #e57345; }
-        .border-coral { border-color: var(--coral); }
-        .bg-gunmetal { background-color: var(--gunmetal); }
-        .text-gunmetal { color: var(--gunmetal); }
-        .bg-paynes-gray { background-color: var(--paynes-gray); }
-        .text-paynes-gray { color: var(--paynes-gray); }
-        .bg-silver { background-color: var(--silver); }
-        .text-silver { color: var(--silver); }
+
+        .bg-coral {
+            background-color: var(--coral);
+        }
+
+        .hover\:bg-coral-dark:hover {
+            background-color: #e57345;
+        }
+
+        .text-coral {
+            color: var(--coral);
+        }
+
+        .hover\:text-coral-dark:hover {
+            color: #e57345;
+        }
+
+        .border-coral {
+            border-color: var(--coral);
+        }
+
+        .bg-gunmetal {
+            background-color: var(--gunmetal);
+        }
+
+        .text-gunmetal {
+            color: var(--gunmetal);
+        }
+
+        .bg-paynes-gray {
+            background-color: var(--paynes-gray);
+        }
+
+        .text-paynes-gray {
+            color: var(--paynes-gray);
+        }
+
+        .bg-silver {
+            background-color: var(--silver);
+        }
+
+        .text-silver {
+            color: var(--silver);
+        }
     </style>
 </head>
+
 <body class="bg-gray-50 min-h-screen font-sans" dir="rtl">
     <!-- Navigation Header -->
-    <nav class="bg-white shadow-sm border-b border-gray-100 fixed top-0 w-full z-50" data-aos="fade-down">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <a href="landing.html" class="flex items-center space-x-3 space-x-reverse group">
-                    <div class="p-1 rounded-lg transition-all duration-300 group-hover:bg-gray-100 group-hover:border group-hover:border-gray-200">
-                        <img src="tansees_logo.svg" alt="تنصيص" class="h-10 w-auto">
-                    </div>
+    <nav class="fixed top-4 w-full z-50 transition-all duration-300" id="mainNav">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div
+                class="flex items-center justify-between h-16 bg-white/90 backdrop-blur-md shadow-sm border border-gray-100 rounded-2xl px-4 lg:px-6">
+                <!-- Logo Only -->
+                <a href="landing.html" class="flex items-center group">
+                    <img src="tansees_logo.svg" alt="تنصيص"
+                        class="h-8 lg:h-9 w-auto opacity-90 group-hover:opacity-100 transition-opacity">
                 </a>
-                
-                <!-- Navigation Links -->
-                <div class="hidden md:flex items-center space-x-8 space-x-reverse">
-                    <a href="landing.html" class="text-gunmetal hover:text-coral transition-colors font-medium">الرئيسية</a>
-                    <a href="index.html" class="text-coral font-bold">التطبيق</a>
-                    <a href="about.html" class="text-gunmetal hover:text-coral transition-colors font-medium">من نحن</a>
-                    <a href="privacy.html" class="text-gunmetal hover:text-coral transition-colors font-medium">سياسة الخصوصية</a>
-                    <a href="#features" class="text-gunmetal hover:text-coral transition-colors font-medium">المميزات</a>
-                </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100 py-4">
-                <div class="flex flex-col space-y-4">
-                    <a href="landing.html" class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">الرئيسية</a>
-                    <a href="index.html" class="text-coral font-bold px-4 py-2">التطبيق</a>
-                    <a href="about.html" class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">من نحن</a>
-                    <a href="privacy.html" class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">سياسة الخصوصية</a>
-                    <a href="#features" class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">المميزات</a>
-                </div>
+
+                <!-- Install App Button (Hidden by default) -->
+                <button id="installAppBtn"
+                    class="hidden items-center justify-center space-x-2 space-x-reverse bg-coral hover:bg-[#e57345] text-white px-4 py-2 rounded-lg font-medium text-sm transition-all shadow-sm">
+                    <i data-feather="download-cloud" class="w-4 h-4"></i>
+                    <span>تثبيت التطبيق</span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <main class="container mx-auto px-4 py-12">
+    <main class="container mx-auto px-4 py-12 pt-32 mt-6">
         <!-- Hero Section -->
         <section class="text-center mb-16" data-aos="fade-up">
             <h2 class="text-4xl font-bold text-gunmetal mb-4">استخراج النص من الصور</h2>
-            <p class="text-xl text-paynes-gray max-w-2xl mx-auto">ارفع الصور أو ملفات PDF لتحويلها إلى نص قابل للتحرير مع الحفاظ على التنسيق.</p>
+            <p class="text-xl text-paynes-gray max-w-2xl mx-auto">ارفع الصور أو ملفات PDF لتحويلها إلى نص قابل للتحرير
+                مع الحفاظ على التنسيق.</p>
         </section>
 
         <!-- Upload Section -->
-        <section class="mb-16" data-aos="fade-up" data-aos-delay="100">
-            <div class="bg-white rounded-xl shadow-md p-8 max-w-4xl mx-auto">
-                <div 
-                    id="dropZone" 
-                    class="drop-zone border-2 border-dashed border-gray-300 rounded-lg p-12 text-center cursor-pointer transition-colors hover:border-blue-400"
-                >
-                    <div class="mx-auto w-16 h-16 mb-4 text-gray-400">
+        <section class="mb-12 relative" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-white rounded-2xl shadow-sm p-8 max-w-4xl mx-auto border border-gray-100">
+                <div id="dropZone"
+                    class="drop-zone border-2 border-dashed border-gray-300 rounded-xl p-16 text-center cursor-pointer transition-all duration-300 hover:border-coral bg-gray-50/50 hover:bg-gray-50">
+                    <div class="mx-auto w-16 h-16 mb-6 text-coral animate-float bg-coral/10 p-4 rounded-full">
                         <i data-feather="upload-cloud" class="w-full h-full"></i>
                     </div>
-                    <p class="text-gray-600 mb-2">اسحب وأسقط ملفاتك هنا</p>
-                    <p class="text-gray-500 text-sm mb-4">الصيغ المدعومة: JPG, PNG, PDF</p>
-                    <label for="fileInput" class="inline-block bg-coral text-white px-6 py-3 rounded-lg cursor-pointer hover:bg-coral-dark transition-colors">
-                        تصفح الملفات
+                    <h3 class="text-xl font-bold text-gunmetal mb-2">اسحب وأسقط ملفاتك هنا</h3>
+                    <p class="text-gray-500 mb-6 text-sm">الصيغ المدعومة: JPG, PNG, PDF (الحد الأقصى ١٠ ميجابايت)</p>
+                    <label for="fileInput"
+                        class="inline-flex items-center gap-2 bg-gunmetal text-white px-6 py-3 rounded-lg cursor-pointer hover:bg-paynes-gray transition-colors font-medium">
+                        <i data-feather="folder-plus" class="w-4 h-4"></i>
+                        <span>تصفح الملفات</span>
                     </label>
                     <input id="fileInput" type="file" class="hidden" accept=".jpg,.jpeg,.png,.pdf" multiple>
                 </div>
-                
-                <div id="fileList" class="mt-6 space-y-3 hidden"></div>
-                
-                <div id="progressContainer" class="mt-6 hidden">
-                    <div class="flex justify-between text-sm text-gray-600 mb-2">
-                        <span id="progressStatus">جاري المعالجة...</span>
-                        <span id="progressPercent">0%</span>
+
+                <div id="fileList" class="mt-6 space-y-2 hidden"></div>
+
+                <div id="progressContainer" class="mt-6 hidden bg-gray-50 p-5 rounded-xl border border-gray-100">
+                    <div class="flex justify-between items-center text-sm font-semibold text-gray-700 mb-3">
+                        <span id="progressStatus" class="flex items-center gap-2">
+                            <svg class="animate-spin h-4 w-4 text-coral" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                    stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                </path>
+                            </svg>
+                            جاري المعالجة...</span>
+                        <span id="progressPercent" class="text-gray-500">0%</span>
                     </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div id="progressBar" class="progress-bar h-2 rounded-full bg-blue-600" style="width: 0%"></div>
+                    <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                        <div id="progressBar"
+                            class="progress-bar rounded-full bg-coral h-full transition-all duration-300"
+                            style="width: 0%"></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Output Section -->
-        <section class="mb-16" data-aos="fade-up" data-aos-delay="200">
-            <div class="bg-white rounded-xl shadow-md p-8 max-w-4xl mx-auto">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-2xl font-semibold text-gray-800">النص المستخرج</h3>
-                    <div class="flex space-x-3 space-x-reverse">
-                        <button 
-                            id="copyButton" 
-                            class="flex items-center space-x-2 space-x-reverse bg-silver text-gunmetal px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                            disabled
-                        >
+        <section class="mb-12 relative" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-white rounded-2xl shadow-sm p-8 max-w-4xl mx-auto border border-gray-100">
+                <div
+                    class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4 pb-4 border-b border-gray-100">
+                    <h3 class="text-xl font-bold text-gunmetal flex items-center gap-2">
+                        <i data-feather="file-text" class="text-gray-400 w-5 h-5"></i>
+                        النص المستخرج
+                    </h3>
+                    <div class="flex space-x-2 space-x-reverse">
+                        <button id="copyButton"
+                            class="flex items-center space-x-2 space-x-reverse bg-gray-50 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed border border-gray-200 text-sm font-medium"
+                            disabled>
                             <i data-feather="copy" class="w-4 h-4"></i>
                             <span>نسخ</span>
                         </button>
-                        <button 
-                            id="downloadButton" 
-                            class="flex items-center space-x-2 space-x-reverse bg-coral text-white px-4 py-2 rounded-lg hover:bg-coral-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                            disabled
-                        >
+                        <button id="downloadButton"
+                            class="flex items-center space-x-2 space-x-reverse bg-coral text-white px-4 py-2 rounded-lg hover:bg-[#e57345] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm font-medium"
+                            disabled>
                             <i data-feather="download" class="w-4 h-4"></i>
                             <span>تحميل</span>
                         </button>
                     </div>
                 </div>
-                
+
                 <div id="outputContainer" class="hidden">
-                    <div class="border border-gray-200 rounded-lg p-4 bg-gray-50 min-h-[200px]">
-                        <pre id="outputText" class="whitespace-pre-wrap font-sans text-gray-800 text-right"></pre>
+                    <div class="border flex-1 border-gray-200 rounded-xl p-6 bg-gray-50 min-h-[250px] relative">
+                        <pre id="outputText"
+                            class="whitespace-pre-wrap font-sans text-gunmetal text-right leading-loose text-base custom-scrollbar max-h-[400px] overflow-y-auto"></pre>
                     </div>
                 </div>
-                
-                <div id="emptyState" class="text-center py-12">
-                    <div class="mx-auto w-16 h-16 mb-4 text-gray-400">
-                        <i data-feather="file" class="w-full h-full"></i>
-                    </div>
-                    <p class="text-gray-600">النص المستخرج سيظهر هنا</p>
+
+                <div id="emptyState"
+                    class="text-center py-16 bg-gray-50 rounded-xl border border-dashed border-gray-200 flex flex-col items-center justify-center">
+
+                    <!-- Elegant & Calm Animated SVG for Empty State -->
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="mb-4">
+                        <g>
+                            <!-- Subtle float animation -->
+                            <animateTransform attributeName="transform" type="translate" values="0,5; 0,-5; 0,5"
+                                dur="6s" repeatCount="indefinite" />
+
+                            <!-- Document background -->
+                            <rect x="35" y="20" width="50" height="70" rx="6" fill="white" stroke="#e2e8f0"
+                                stroke-width="2" />
+
+                            <!-- Folded corner styling -->
+                            <path d="M65 20 v12 c0 2.2 1.8 4 4 4 h16" fill="none" stroke="#e2e8f0" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+
+                            <!-- Document Lines with soft fade-in animation -->
+                            <rect x="45" y="45" width="25" height="4" rx="2" fill="#cbd5e1">
+                                <animate attributeName="opacity" values="0.3;1;0.3" dur="4s" begin="0s"
+                                    repeatCount="indefinite" />
+                            </rect>
+                            <rect x="45" y="57" width="30" height="4" rx="2" fill="#cbd5e1">
+                                <animate attributeName="opacity" values="0.3;1;0.3" dur="4s" begin="1.3s"
+                                    repeatCount="indefinite" />
+                            </rect>
+                            <rect x="45" y="69" width="15" height="4" rx="2" fill="#ef8354">
+                                <animate attributeName="opacity" values="0.3;1;0.3" dur="4s" begin="2.6s"
+                                    repeatCount="indefinite" />
+                            </rect>
+
+                            <!-- Subtle sparkles around document -->
+                            <g fill="#ef8354">
+                                <circle cx="28" cy="40" r="2">
+                                    <animate attributeName="opacity" values="0;0.5;0" dur="4s" begin="0.5s"
+                                        repeatCount="indefinite" />
+                                </circle>
+                                <circle cx="92" cy="65" r="1.5">
+                                    <animate attributeName="opacity" values="0;0.6;0" dur="3.5s" begin="1.5s"
+                                        repeatCount="indefinite" />
+                                </circle>
+                                <circle cx="35" cy="85" r="2">
+                                    <animate attributeName="opacity" values="0;0.4;0" dur="5s" begin="2s"
+                                        repeatCount="indefinite" />
+                                </circle>
+                            </g>
+                        </g>
+                    </svg>
+
+                    <p class="text-gray-500 font-medium">النص المستخرج سيظهر هنا</p>
+                    <p class="text-gray-400 text-sm mt-1">قم برفع ملف للبدء بالمعالجة</p>
                 </div>
-                
-                <div id="errorMessage" class="hidden mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                    <div class="flex items-center space-x-2 space-x-reverse text-red-800">
+
+                <div id="errorMessage" class="hidden mt-6 p-4 bg-red-50 border border-red-100 rounded-xl text-sm">
+                    <div class="flex items-center space-x-2 space-x-reverse text-red-700">
                         <i data-feather="alert-circle" class="w-5 h-5"></i>
                         <span id="errorText"></span>
                     </div>
@@ -213,7 +301,8 @@
     <footer class="bg-gunmetal border-t border-gray-200 mt-12">
         <div class="container mx-auto px-4 py-8">
             <div class="text-center text-silver">
-                <p>© 2024 تنصيص. جميع الحقوق محفوظة. | تطوير <a href="https://owwwais.com" target="_blank" class="text-coral hover:underline">أويس أحمد</a></p>
+                <p>© 2024 تنصيص. جميع الحقوق محفوظة. | تطوير <a href="https://owwwais.com" target="_blank"
+                        class="text-coral hover:underline">أويس أحمد</a></p>
                 <p class="mt-2 text-sm">صُنع باستخدام تقنيات الذكاء الاصطناعي الوكيلي</p>
             </div>
         </div>
@@ -225,11 +314,81 @@
             duration: 800,
             once: true
         });
-        
-        // Wait for Feather Icons to load
-        document.addEventListener('DOMContentLoaded', function() {
+
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/static/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration.scope);
+                    })
+                    .catch(err => {
+                        console.log('SW registration failed: ', err);
+                    });
+            });
+        }
+
+        // PWA Install Prompt Logic
+        let deferredPrompt;
+        const installAppBtn = document.getElementById('installAppBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Stash the event so it can be triggered later.
+            deferredPrompt = e;
+            // Update UI notify the user they can install the PWA
+            if (installAppBtn) installAppBtn.classList.remove('hidden');
+            if (installAppBtn) installAppBtn.classList.add('flex');
+            // Re-render icons since the button was hidden during initial load
             feather.replace();
-            
+        });
+
+        if (installAppBtn) {
+            installAppBtn.addEventListener('click', async () => {
+                // Hide the app provided install promotion
+                installAppBtn.classList.add('hidden');
+                installAppBtn.classList.remove('flex');
+                // Show the install prompt
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    // Wait for the user to respond to the prompt
+                    const { outcome } = await deferredPrompt.userChoice;
+                    console.log(`User response to the install prompt: ${outcome}`);
+                    // We've used the prompt, and can't use it again, throw it away
+                    deferredPrompt = null;
+                }
+            });
+        }
+
+        window.addEventListener('appinstalled', () => {
+            // Hide the app-provided install promotion
+            if (installAppBtn) installAppBtn.classList.add('hidden');
+            if (installAppBtn) installAppBtn.classList.remove('flex');
+            // Clear the deferredPrompt so it can be garbage collected
+            deferredPrompt = null;
+            console.log('PWA was installed');
+        });
+
+        // Header Background on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            const navInner = nav.querySelector('div > div');
+            if (window.scrollY > 50) {
+                navInner.classList.add('shadow-md', 'border-gray-200');
+                navInner.classList.remove('shadow-sm', 'border-gray-100');
+                nav.classList.add('pt-2');
+            } else {
+                navInner.classList.remove('shadow-md', 'border-gray-200');
+                navInner.classList.add('shadow-sm', 'border-gray-100');
+                nav.classList.remove('pt-2');
+            }
+        });
+
+        // Wait for Feather Icons to load
+        document.addEventListener('DOMContentLoaded', function () {
+            feather.replace();
+
             // DOM elements
             const dropZone = document.getElementById('dropZone');
             const fileInput = document.getElementById('fileInput');
@@ -245,36 +404,36 @@
             const errorText = document.getElementById('errorText');
             const copyButton = document.getElementById('copyButton');
             const downloadButton = document.getElementById('downloadButton');
-            
+
             let extractedText = '';
             let currentJob = null;
-            
+
             // Drag and drop handlers
             ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
                 dropZone.addEventListener(eventName, preventDefaults, false);
             });
-            
+
             function preventDefaults(e) {
                 e.preventDefault();
                 e.stopPropagation();
             }
-            
+
             ['dragenter', 'dragover'].forEach(eventName => {
                 dropZone.addEventListener(eventName, highlight, false);
             });
-            
+
             ['dragleave', 'drop'].forEach(eventName => {
                 dropZone.addEventListener(eventName, unhighlight, false);
             });
-            
+
             function highlight() {
                 dropZone.classList.add('dragover');
             }
-            
+
             function unhighlight() {
                 dropZone.classList.remove('dragover');
             }
-            
+
             dropZone.addEventListener('drop', handleDrop, false);
             dropZone.addEventListener('click', (e) => {
                 // تجنب النقر المزدوج عند النقر على الـ label أو الـ input
@@ -284,49 +443,49 @@
                 fileInput.click();
             });
             fileInput.addEventListener('change', handleFiles);
-            
+
             function handleDrop(e) {
                 const dt = e.dataTransfer;
                 const files = dt.files;
                 handleFiles({ target: { files } });
             }
-            
+
             function handleFiles(e) {
                 const files = Array.from(e.target.files);
-                
+
                 // إعادة تعيين قيمة الـ input للسماح برفع نفس الملف مرة أخرى
                 if (e.target && e.target.value) {
                     setTimeout(() => { e.target.value = ''; }, 0);
                 }
-                
+
                 // Validate files
                 const validFiles = files.filter(file => {
                     const fileType = file.type.toLowerCase();
                     const validTypes = ['image/jpeg', 'image/png', 'application/pdf'];
-                    
+
                     if (!validTypes.includes(fileType)) {
                         showError(`نوع الملف غير مدعوم: ${file.name}. يرجى رفع ملفات JPG, PNG, أو PDF.`);
                         return false;
                     }
-                    
+
                     if (file.size > 10 * 1024 * 1024) {
                         showError(`الملف كبير جداً: ${file.name}. الحد الأقصى 10 ميجابايت.`);
                         return false;
                     }
-                    
+
                     return true;
                 });
-                
+
                 if (validFiles.length === 0) return;
-                
+
                 // Clear previous results
                 hideError();
                 resetOutput();
-                
+
                 // Show file list
                 fileList.innerHTML = '';
                 fileList.classList.remove('hidden');
-                
+
                 validFiles.forEach(file => {
                     const fileItem = document.createElement('div');
                     fileItem.className = 'flex items-center justify-between p-3 bg-gray-50 rounded-lg';
@@ -339,17 +498,17 @@
                     `;
                     fileList.appendChild(fileItem);
                 });
-                
+
                 // Process files
                 processFiles(validFiles);
             }
-            
+
             function getFileIcon(type) {
                 if (type.includes('image')) return 'image';
                 if (type.includes('pdf')) return 'file-text';
                 return 'file';
             }
-            
+
             function formatFileSize(bytes) {
                 if (bytes === 0) return '0 بايت';
                 const k = 1024;
@@ -357,94 +516,94 @@
                 const i = Math.floor(Math.log(bytes) / Math.log(k));
                 return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
             }
-            
+
             async function processFiles(files) {
                 showProgress('تهيئة محرك OCR...', 0);
-                
+
                 try {
                     // Process files one by one using existing backend
                     for (let i = 0; i < files.length; i++) {
                         const file = files[i];
-                        
+
                         showProgress(`معالجة ${file.name}...`, (i / files.length) * 50);
-                        
+
                         // Upload file
                         const formData = new FormData();
                         formData.append('file', file);
-                        
+
                         const uploadResponse = await fetch('/api/upload', {
                             method: 'POST',
                             body: formData
                         });
-                        
+
                         if (!uploadResponse.ok) {
                             throw new Error('فشل في رفع الملف');
                         }
-                        
+
                         const uploadResult = await uploadResponse.json();
-                        
+
                         // Process OCR
                         showProgress(`استخراج النص من ${file.name}...`, 50 + (i / files.length) * 50);
-                        
+
                         const ocrFormData = new FormData();
                         ocrFormData.append('filename', uploadResult.filename);
-                        
+
                         const ocrResponse = await fetch('/api/process-ocr', {
                             method: 'POST',
                             body: ocrFormData
                         });
-                        
+
                         if (!ocrResponse.ok) {
                             const errorData = await ocrResponse.json();
                             throw new Error(errorData.detail || 'فشل في معالجة OCR');
                         }
-                        
+
                         const ocrResult = await ocrResponse.json();
                         extractedText += ocrResult.extracted_text + '\n\n';
                     }
-                    
+
                     // Show results
                     showProgress('مكتمل', 100);
                     setTimeout(() => {
                         displayResults(extractedText.trim());
                     }, 500);
-                    
+
                 } catch (error) {
                     console.error('OCR Error:', error);
                     showError('فشل في معالجة الملفات. يرجى المحاولة مرة أخرى.');
                     hideProgress();
                 }
             }
-            
+
             function showProgress(status, percent) {
                 progressContainer.classList.remove('hidden');
                 progressStatus.textContent = status;
                 progressPercent.textContent = `${Math.round(percent)}%`;
                 progressBar.style.width = `${percent}%`;
             }
-            
+
             function hideProgress() {
                 progressContainer.classList.add('hidden');
             }
-            
+
             function displayResults(text) {
                 if (!text || text.trim().length === 0) {
                     showError('لم يتم استخراج أي نص من الملفات المرفوعة.');
                     return;
                 }
-                
+
                 extractedText = text;
                 outputText.textContent = text;
                 outputContainer.classList.remove('hidden');
                 emptyState.classList.add('hidden');
-                
+
                 // Enable buttons
                 copyButton.disabled = false;
                 downloadButton.disabled = false;
-                
+
                 hideProgress();
             }
-            
+
             function resetOutput() {
                 outputContainer.classList.add('hidden');
                 emptyState.classList.remove('hidden');
@@ -452,26 +611,26 @@
                 copyButton.disabled = true;
                 downloadButton.disabled = true;
             }
-            
+
             function showError(message) {
                 errorText.textContent = message;
                 errorMessage.classList.remove('hidden');
             }
-            
+
             function hideError() {
                 errorMessage.classList.add('hidden');
             }
-            
+
             // Copy to clipboard
             copyButton.addEventListener('click', async () => {
                 try {
                     await navigator.clipboard.writeText(extractedText);
-                    
+
                     // Visual feedback
                     const originalHtml = copyButton.innerHTML;
                     copyButton.innerHTML = '<i data-feather="check" class="w-4 h-4"></i><span>تم النسخ!</span>';
                     feather.replace();
-                    
+
                     setTimeout(() => {
                         copyButton.innerHTML = originalHtml;
                         feather.replace();
@@ -480,32 +639,32 @@
                     showError('فشل في نسخ النص إلى الحافظة.');
                 }
             });
-            
+
             // Download as text file
             downloadButton.addEventListener('click', () => {
                 const blob = new Blob([extractedText], { type: 'text/plain;charset=utf-8' });
                 const url = URL.createObjectURL(blob);
-                
+
                 const a = document.createElement('a');
                 a.href = url;
                 a.download = 'extracted-text.txt';
                 document.body.appendChild(a);
                 a.click();
-                
+
                 // Clean up
                 setTimeout(() => {
                     document.body.removeChild(a);
                     URL.revokeObjectURL(url);
                 }, 100);
             });
-            
+
             // Replace feather icons after dynamic content changes
-            const observer = new MutationObserver(function(mutations) {
+            const observer = new MutationObserver(function (mutations) {
                 feather.replace();
             });
-            
+
             observer.observe(fileList, { childList: true });
-            
+
             // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -518,4 +677,5 @@
         });
     </script>
 </body>
+
 </html>

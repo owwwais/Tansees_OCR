@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>من نحن - تنصيص</title>
     <meta name="description" content="تعرف على تنصيص ورؤيتنا في تطوير أفضل تقنيات استخراج النصوص بالذكاء الاصطناعي">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
-    
+
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
     <!-- Custom CSS Variables -->
     <style>
         :root {
@@ -25,44 +26,70 @@
             --white: #ffffffff;
             --coral: #ef8354ff;
         }
-        
-        .bg-gunmetal { background-color: var(--gunmetal); }
-        .bg-paynes-gray { background-color: var(--paynes-gray); }
-        .bg-silver { background-color: var(--silver); }
-        .bg-coral { background-color: var(--coral); }
-        .text-gunmetal { color: var(--gunmetal); }
-        .text-paynes-gray { color: var(--paynes-gray); }
-        .text-coral { color: var(--coral); }
-        .border-coral { border-color: var(--coral); }
-        .border-gunmetal { border-color: var(--gunmetal); }
-        
+
+        .bg-gunmetal {
+            background-color: var(--gunmetal);
+        }
+
+        .bg-paynes-gray {
+            background-color: var(--paynes-gray);
+        }
+
+        .bg-silver {
+            background-color: var(--silver);
+        }
+
+        .bg-coral {
+            background-color: var(--coral);
+        }
+
+        .text-gunmetal {
+            color: var(--gunmetal);
+        }
+
+        .text-paynes-gray {
+            color: var(--paynes-gray);
+        }
+
+        .text-coral {
+            color: var(--coral);
+        }
+
+        .border-coral {
+            border-color: var(--coral);
+        }
+
+        .border-gunmetal {
+            border-color: var(--gunmetal);
+        }
+
         .hero-gradient {
             background: linear-gradient(135deg, var(--gunmetal) 0%, var(--paynes-gray) 100%);
         }
-        
+
         .feature-card-hover:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(45, 49, 66, 0.15);
         }
-        
+
         .btn-hover-lift:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(239, 131, 84, 0.3);
         }
-        
+
         .team-card:hover img {
             transform: scale(1.1);
         }
-        
+
         .timeline-item:nth-child(even) {
             flex-direction: row-reverse;
         }
-        
+
         .timeline-item:nth-child(even) .timeline-content {
             text-align: left;
         }
     </style>
-    
+
     <!-- Tailwind Config -->
     <script>
         tailwind.config = {
@@ -81,66 +108,87 @@
             }
         }
     </script>
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="font-arabic bg-gray-50" dir="rtl">
     <!-- Navigation Header -->
-    <nav class="bg-white shadow-sm border-b border-gray-100 fixed top-0 w-full z-50" data-aos="fade-down">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
+    <nav class="fixed top-4 w-full z-50 transition-all duration-300" id="mainNav">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div
+                class="flex justify-between items-center h-16 bg-white/90 backdrop-blur-md shadow-sm border border-gray-100 rounded-2xl px-4 lg:px-6">
                 <!-- Logo -->
                 <a href="landing.html" class="flex items-center space-x-3 space-x-reverse group">
-                    <div class="p-1 rounded-lg transition-all duration-300 group-hover:bg-gray-100 group-hover:border group-hover:border-gray-200">
-                        <img src="tansees_logo.svg" alt="تنصيص" class="h-10 w-auto">
-                    </div>
+                    <img src="tansees_logo.svg" alt="تنصيص"
+                        class="h-8 lg:h-9 w-auto opacity-90 group-hover:opacity-100 transition-opacity">
                 </a>
-                
-                <!-- Navigation Links -->
-                <div class="hidden md:flex items-center space-x-8 space-x-reverse">
-                    <a href="landing.html" class="text-gunmetal hover:text-coral transition-colors font-medium">الرئيسية</a>
-                    <a href="index.html" class="text-gunmetal hover:text-coral transition-colors font-medium">التطبيق</a>
-                    <a href="about.html" class="text-coral font-bold">من نحن</a>
-                    <a href="privacy.html" class="text-gunmetal hover:text-coral transition-colors font-medium">سياسة الخصوصية</a>
+
+                <!-- Navigation Links (Pill Style) -->
+                <div
+                    class="hidden md:flex items-center space-x-1 space-x-reverse bg-gray-50 rounded-full p-1 border border-gray-100">
+                    <a href="landing.html"
+                        class="text-gunmetal hover:text-coral hover:bg-white/50 px-4 py-1.5 rounded-full text-sm font-medium transition-all">الرئيسية</a>
+                    <a href="index.html"
+                        class="text-gunmetal hover:text-coral hover:bg-white/50 px-4 py-1.5 rounded-full text-sm font-medium transition-all">التطبيق</a>
+                    <a href="about.html"
+                        class="bg-white shadow-sm text-coral font-bold px-4 py-1.5 rounded-full text-sm transition-all">من
+                        نحن</a>
+                    <a href="privacy.html"
+                        class="text-gunmetal hover:text-coral hover:bg-white/50 px-4 py-1.5 rounded-full text-sm font-medium transition-all">سياسة
+                        الخصوصية</a>
                 </div>
-                
+
                 <!-- CTA Button -->
                 <div class="flex items-center space-x-4 space-x-reverse">
-                    <a href="index.html" class="bg-coral hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all btn-hover-lift">
-                        جرب التطبيق
+                    <a href="index.html"
+                        class="hidden sm:inline-flex bg-gunmetal hover:bg-paynes-gray text-white px-5 py-2 rounded-xl font-semibold text-sm transition-all btn-hover-lift">
+                        جرب الآن
                     </a>
-                    
+
                     <!-- Mobile Menu Button -->
-                    <button id="mobileMenuBtn" class="md:hidden text-gunmetal">
+                    <button id="mobileMenuBtn" class="md:hidden text-gunmetal p-2 focus:outline-none">
                         <i data-feather="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
             </div>
-            
+
             <!-- Mobile Menu -->
-            <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100 py-4">
-                <div class="flex flex-col space-y-4">
-                    <a href="landing.html" class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">الرئيسية</a>
-                    <a href="index.html" class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">التطبيق</a>
-                    <a href="about.html" class="text-coral font-bold px-4 py-2">من نحن</a>
-                    <a href="privacy.html" class="text-gunmetal hover:text-coral transition-colors font-medium px-4 py-2">سياسة الخصوصية</a>
+            <div id="mobileMenu"
+                class="md:hidden hidden bg-white/95 backdrop-blur-md border border-gray-100 rounded-2xl mt-2 p-4 shadow-lg absolute w-[calc(100%-2rem)] left-4 right-4 max-h-[80vh] overflow-y-auto">
+                <div class="flex flex-col space-y-2">
+                    <a href="landing.html"
+                        class="text-gunmetal hover:text-coral hover:bg-gray-50 transition-colors font-medium px-4 py-3 rounded-xl border border-transparent hover:border-gray-100">الرئيسية</a>
+                    <a href="index.html"
+                        class="text-gunmetal hover:text-coral hover:bg-gray-50 transition-colors font-medium px-4 py-3 rounded-xl border border-transparent hover:border-gray-100">التطبيق</a>
+                    <a href="about.html"
+                        class="bg-coral/5 text-coral font-bold px-4 py-3 rounded-xl border border-coral/10">من نحن</a>
+                    <a href="privacy.html"
+                        class="text-gunmetal hover:text-coral hover:bg-gray-50 transition-colors font-medium px-4 py-3 rounded-xl border border-transparent hover:border-gray-100">سياسة
+                        الخصوصية</a>
+                    <div class="h-px bg-gray-100 my-2"></div>
+                    <a href="index.html"
+                        class="bg-gunmetal text-white text-center font-bold px-4 py-3 rounded-xl hover:bg-paynes-gray transition-colors">جرب
+                        التطبيق مجاناً</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="about" class="hero-gradient relative overflow-hidden pt-20 pb-16">
+    <section id="about" class="hero-gradient relative overflow-hidden pt-36 pb-16 mt-6">
         <div class="absolute inset-0 bg-black opacity-10"></div>
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center text-white py-20">
                 <h1 class="text-5xl lg:text-6xl font-bold mb-6" data-aos="fade-up">
                     من نحن؟
                 </h1>
-                <p class="text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-                    نحن فريق من الخبراء المتخصصين في الذكاء الاصطناعي ومعالجة اللغات الطبيعية، 
+                <p class="text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up"
+                    data-aos-delay="100">
+                    نحن فريق من الخبراء المتخصصين في الذكاء الاصطناعي ومعالجة اللغات الطبيعية،
                     نسعى لتطوير أفضل تقنيات استخراج النصوص العربية
                 </p>
             </div>
@@ -158,8 +206,8 @@
                     </div>
                     <h2 class="text-4xl font-bold text-gunmetal mb-6">رسالتنا</h2>
                     <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                        نسعى لجعل تقنيات استخراج النصوص متاحة وسهلة الاستخدام للجميع، 
-                        خاصة في المحتوى العربي الذي يحتاج لمعالجة خاصة ودقيقة. 
+                        نسعى لجعل تقنيات استخراج النصوص متاحة وسهلة الاستخدام للجميع،
+                        خاصة في المحتوى العربي الذي يحتاج لمعالجة خاصة ودقيقة.
                         نؤمن بأن التكنولوجيا يجب أن تخدم المستخدم العربي بنفس جودة الخدمات العالمية.
                     </p>
                     <ul class="space-y-3">
@@ -177,7 +225,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <!-- Vision -->
                 <div data-aos="fade-left" data-aos-delay="200">
                     <div class="bg-coral bg-opacity-10 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
@@ -185,8 +233,8 @@
                     </div>
                     <h2 class="text-4xl font-bold text-gunmetal mb-6">رؤيتنا</h2>
                     <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                        أن نكون الرائدين في مجال تقنيات استخراج النصوص العربية، 
-                        ونبني جسراً تقنياً يربط التراث العربي بالتكنولوجيا الحديثة. 
+                        أن نكون الرائدين في مجال تقنيات استخراج النصوص العربية،
+                        ونبني جسراً تقنياً يربط التراث العربي بالتكنولوجيا الحديثة.
                         نطمح لأن نكون الخيار الأول لكل من يحتاج لمعالجة المحتوى النصي العربي.
                     </p>
                     <div class="bg-gray-50 rounded-xl p-6">
@@ -221,11 +269,12 @@
                     المبادئ التي توجه عملنا وتحدد هويتنا كفريق
                 </p>
             </div>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Value 1 -->
                 <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bg-coral bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <div
+                        class="bg-coral bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i data-feather="heart" class="w-10 h-10 text-coral"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gunmetal mb-3">الشغف</h3>
@@ -233,10 +282,11 @@
                         نحب ما نفعله ونسعى للتميز في كل مشروع نعمل عليه
                     </p>
                 </div>
-                
+
                 <!-- Value 2 -->
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-coral bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <div
+                        class="bg-coral bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i data-feather="users" class="w-10 h-10 text-coral"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gunmetal mb-3">التعاون</h3>
@@ -244,10 +294,11 @@
                         نؤمن بقوة العمل الجماعي وأهمية تبادل الخبرات
                     </p>
                 </div>
-                
+
                 <!-- Value 3 -->
                 <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="bg-coral bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <div
+                        class="bg-coral bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i data-feather="star" class="w-10 h-10 text-coral"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gunmetal mb-3">التميز</h3>
@@ -255,10 +306,11 @@
                         نسعى لتقديم أفضل الحلول وأعلى مستويات الجودة
                     </p>
                 </div>
-                
+
                 <!-- Value 4 -->
                 <div class="text-center" data-aos="fade-up" data-aos-delay="400">
-                    <div class="bg-coral bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <div
+                        class="bg-coral bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i data-feather="shield" class="w-10 h-10 text-coral"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gunmetal mb-3">الثقة</h3>
@@ -280,11 +332,13 @@
                 نحن دائماً نبحث عن المواهب المتميزة للانضمام لفريقنا ومساعدتنا في تطوير أفضل الحلول التقنية
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="index.html" class="bg-coral hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all btn-hover-lift inline-flex items-center justify-center space-x-2 space-x-reverse">
+                <a href="index.html"
+                    class="bg-coral hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all btn-hover-lift inline-flex items-center justify-center space-x-2 space-x-reverse">
                     <i data-feather="play-circle" class="w-6 h-6"></i>
                     <span>جرب تطبيقنا</span>
                 </a>
-                <a href="mailto:info@owwwais.com" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white border-2 border-white border-opacity-30 px-8 py-4 rounded-lg font-bold text-lg transition-all inline-flex items-center justify-center space-x-2 space-x-reverse">
+                <a href="mailto:info@owwwais.com"
+                    class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white border-2 border-white border-opacity-30 px-8 py-4 rounded-lg font-bold text-lg transition-all inline-flex items-center justify-center space-x-2 space-x-reverse">
                     <i data-feather="mail" class="w-6 h-6"></i>
                     <span>تواصل معنا للعمل</span>
                 </a>
@@ -304,7 +358,7 @@
                         </div>
                     </div>
                     <p class="text-gray-400 leading-relaxed max-w-md mb-6">
-                        نحن نقدم أحدث تقنيات الذكاء الاصطناعي لاستخراج النصوص من الصور والمستندات 
+                        نحن نقدم أحدث تقنيات الذكاء الاصطناعي لاستخراج النصوص من الصور والمستندات
                         بأعلى دقة وأسرع وقت ممكن مع دعم كامل للغة العربية.
                     </p>
                     <div class="flex space-x-4 space-x-reverse">
@@ -319,18 +373,21 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Quick Links -->
                 <div>
                     <h4 class="text-lg font-semibold mb-6">روابط سريعة</h4>
                     <ul class="space-y-3">
-                        <li><a href="landing.html" class="text-gray-400 hover:text-coral transition-colors">الرئيسية</a></li>
-                        <li><a href="index.html" class="text-gray-400 hover:text-coral transition-colors">التطبيق</a></li>
+                        <li><a href="landing.html" class="text-gray-400 hover:text-coral transition-colors">الرئيسية</a>
+                        </li>
+                        <li><a href="index.html" class="text-gray-400 hover:text-coral transition-colors">التطبيق</a>
+                        </li>
                         <li><a href="#about" class="text-gray-400 hover:text-coral transition-colors">من نحن</a></li>
-                        <li><a href="privacy.html" class="text-gray-400 hover:text-coral transition-colors">سياسة الخصوصية</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-coral transition-colors">سياسة
+                                الخصوصية</a></li>
                     </ul>
                 </div>
-                
+
                 <!-- Contact -->
                 <div>
                     <h4 class="text-lg font-semibold mb-6">تواصل معنا</h4>
@@ -341,16 +398,18 @@
                         </li>
                         <li class="flex items-center space-x-3 space-x-reverse text-gray-400">
                             <i data-feather="globe" class="w-5 h-5 text-coral"></i>
-                            <a href="https://owwwais.com" target="_blank" class="hover:text-coral transition-colors">owwwais.com</a>
+                            <a href="https://owwwais.com" target="_blank"
+                                class="hover:text-coral transition-colors">owwwais.com</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            
+
             <!-- Bottom Bar -->
             <div class="border-t border-paynes-gray pt-8 text-center">
                 <p class="text-gray-400">
-                    &copy; 2024 تنصيص. جميع الحقوق محفوظة. | تطوير <a href="https://owwwais.com" target="_blank" class="text-coral hover:underline">أويس أحمد</a>
+                    &copy; 2024 تنصيص. جميع الحقوق محفوظة. | تطوير <a href="https://owwwais.com" target="_blank"
+                        class="text-coral hover:underline">أويس أحمد</a>
                 </p>
             </div>
         </div>
@@ -365,18 +424,18 @@
             once: true,
             offset: 100
         });
-        
+
         // Initialize Feather Icons
         feather.replace();
-        
+
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        
+
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        
+
         // Smooth Scrolling for Navigation Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -386,7 +445,7 @@
                     const offset = 80; // Account for fixed header
                     const elementPosition = target.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - offset;
-                    
+
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: 'smooth'
@@ -394,16 +453,22 @@
                 }
             });
         });
-        
+
         // Header Background on Scroll
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
+            const nav = document.getElementById('mainNav');
+            const navInner = nav.querySelector('div > div');
             if (window.scrollY > 50) {
-                nav.classList.add('backdrop-blur-md', 'bg-white', 'bg-opacity-95');
+                navInner.classList.add('shadow-md', 'border-gray-200');
+                navInner.classList.remove('shadow-sm', 'border-gray-100');
+                nav.classList.add('pt-2');
             } else {
-                nav.classList.remove('backdrop-blur-md', 'bg-white', 'bg-opacity-95');
+                navInner.classList.remove('shadow-md', 'border-gray-200');
+                navInner.classList.add('shadow-sm', 'border-gray-100');
+                nav.classList.remove('pt-2');
             }
         });
     </script>
 </body>
+
 </html>
