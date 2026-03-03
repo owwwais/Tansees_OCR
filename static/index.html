@@ -167,12 +167,22 @@
                     </div>
                     <h3 class="text-xl font-bold text-gunmetal mb-2">اسحب وأسقط ملفاتك هنا</h3>
                     <p class="text-gray-500 mb-6 text-sm">الصيغ المدعومة: JPG, PNG, PDF (الحد الأقصى ١٠ ميجابايت)</p>
+                    <!-- Desktop/Default File Input Label -->
                     <label for="fileInput"
-                        class="inline-flex items-center gap-2 bg-gunmetal text-white px-6 py-3 rounded-lg cursor-pointer hover:bg-paynes-gray transition-colors font-medium">
+                        class="inline-flex items-center justify-center gap-2 bg-gunmetal text-white px-6 py-3 rounded-lg cursor-pointer hover:bg-paynes-gray transition-colors font-medium w-full sm:w-auto mt-4 sm:mt-0">
                         <i data-feather="folder-plus" class="w-4 h-4"></i>
                         <span>تصفح الملفات</span>
                     </label>
+
+                    <!-- Mobile Camera Input Label (Hidden on small screens) -->
+                    <label for="cameraInput"
+                        class="inline-flex sm:hidden items-center justify-center gap-2 bg-coral text-white px-6 py-3 rounded-lg cursor-pointer hover:bg-[#e57345] transition-colors font-medium w-full mt-3 shadow-md">
+                        <i data-feather="camera" class="w-4 h-4"></i>
+                        <span>التقاط صورة</span>
+                    </label>
+
                     <input id="fileInput" type="file" class="hidden" accept=".jpg,.jpeg,.png,.pdf" multiple>
+                    <input id="cameraInput" type="file" class="hidden" accept="image/*" capture="environment">
                 </div>
 
                 <div id="fileList" class="mt-6 space-y-2 hidden"></div>
@@ -392,6 +402,7 @@
             // DOM elements
             const dropZone = document.getElementById('dropZone');
             const fileInput = document.getElementById('fileInput');
+            const cameraInput = document.getElementById('cameraInput'); // <-- Add Camera Input Reference
             const fileList = document.getElementById('fileList');
             const progressContainer = document.getElementById('progressContainer');
             const progressBar = document.getElementById('progressBar');
@@ -443,6 +454,11 @@
                 fileInput.click();
             });
             fileInput.addEventListener('change', handleFiles);
+
+            // إضافة مستمع لحدث زر الكاميرا
+            if (cameraInput) {
+                cameraInput.addEventListener('change', handleFiles);
+            }
 
             function handleDrop(e) {
                 const dt = e.dataTransfer;
