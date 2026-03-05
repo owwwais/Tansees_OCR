@@ -2,7 +2,7 @@
   "name": "تنصيص - استخراج النصوص",
   "short_name": "تنصيص",
   "description": "تطبيق تنصيص المتطور لتحويل الصور والمستندات إلى نص قابل للتحرير",
-  "start_url": "/",
+  "start_url": "/index.html",
   "scope": "/",
   "id": "/",
   "display": "standalone",
