@@ -111,11 +111,14 @@
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- PWA & Favicon -->
+    <!-- Favicon & PWA -->
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-    <link rel="apple-touch-icon" sizes="192x192" href="/static/icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/static/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
     <link rel="manifest" href="/static/site.webmanifest">
+    <meta name="theme-color" content="#ef8354">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="تنصيص">
@@ -728,8 +731,9 @@
         const installBtn = document.getElementById('pwa-install-btn');
         const dismissBtn = document.getElementById('pwa-dismiss-btn');
 
-        // Check if user previously dismissed
-        const pwaDismissed = localStorage.getItem('pwaPromptDismissed');
+        // Check if user previously dismissed (Reset for testing so it always shows!)
+        localStorage.removeItem('pwaPromptDismissed');
+        const pwaDismissed = false;
         const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
 
