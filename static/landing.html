@@ -110,6 +110,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
+
+    <!-- PWA & Favicon -->
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="apple-touch-icon" sizes="192x192" href="/static/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/icon-192x192.png">
+    <link rel="manifest" href="/static/site.webmanifest">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="تنصيص">
 </head>
 
 <body class="font-arabic bg-gray-50" dir="rtl">
@@ -721,39 +730,54 @@
 
         // Check if user previously dismissed
         const pwaDismissed = localStorage.getItem('pwaPromptDismissed');
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
 
-        window.addEventListener('beforeinstallprompt', (e) => {
-            // Prevent the mini-infobar from appearing on mobile
-            e.preventDefault();
-            // Stash the event so it can be triggered later.
-            deferredPrompt = e;
-            // Update UI notify the user they can install the PWA if not dismissed
-            if (pwaPopup && !pwaDismissed) {
-                // slight delay to let the UI settle
-                setTimeout(() => {
-                    pwaPopup.classList.remove('translate-y-full', 'opacity-0');
-                }, 1500);
+        if (isIOS && !isStandalone && pwaPopup && !pwaDismissed) {
+            // iOS specifically requires manual addition to home screen
+            const popupTitle = pwaPopup.querySelector('h4');
+            const popupDesc = pwaPopup.querySelector('p');
+            if (popupTitle) popupTitle.textContent = "أضف التطبيق لشاشتك الرئيسية";
+            if (popupDesc) popupDesc.textContent = "للحصول على تجربة التطبيق الكاملة على الآيفون";
+
+            if (installBtn) {
+                installBtn.innerHTML = '<i data-feather="share" class="w-4 h-4"></i><span>كيفية التثبيت</span>';
+                installBtn.addEventListener('click', () => {
+                    alert('لتثبيت التطبيق على الآيفون: \n1. اضغط على زر المشاركة (مربع يخرج منه سهم للأعلى) المفتوح أسفل شاشتك في متصفح سفاري.\n2. اسحب للأسفل واختر "إضافة للشاشة الرئيسية" (Add to Home Screen).');
+                });
             }
-        });
 
-        if (installBtn) {
-            installBtn.addEventListener('click', async () => {
-                // Hide the app provided install promotion
-                if (pwaPopup) pwaPopup.classList.add('translate-y-full', 'opacity-0');
-
-                // Show the install prompt
-                if (deferredPrompt) {
-                    deferredPrompt.prompt();
-                    // Wait for the user to respond to the prompt
-                    const { outcome } = await deferredPrompt.userChoice;
-                    console.log(`User response to the install prompt: ${outcome}`);
-                    if (outcome === 'accepted') {
-                        localStorage.setItem('pwaPromptDismissed', 'true');
-                    }
-                    // We've used the prompt, and can't use it again, throw it away
-                    deferredPrompt = null;
+            setTimeout(() => {
+                pwaPopup.classList.remove('translate-y-full', 'opacity-0');
+            }, 1000);
+        } else {
+            // Android / Standard web behavior
+            window.addEventListener('beforeinstallprompt', (e) => {
+                // Prevent the mini-infobar from appearing on mobile
+                e.preventDefault();
+                // Stash the event so it can be triggered later
+                deferredPrompt = e;
+                // Update UI notify the user they can install the PWA if not dismissed
+                if (pwaPopup && !pwaDismissed) {
+                    setTimeout(() => {
+                        pwaPopup.classList.remove('translate-y-full', 'opacity-0');
+                    }, 1500);
                 }
             });
+
+            if (installBtn) {
+                installBtn.addEventListener('click', async () => {
+                    if (pwaPopup) pwaPopup.classList.add('translate-y-full', 'opacity-0');
+                    if (deferredPrompt) {
+                        deferredPrompt.prompt();
+                        const { outcome } = await deferredPrompt.userChoice;
+                        if (outcome === 'accepted') {
+                            localStorage.setItem('pwaPromptDismissed', 'true');
+                        }
+                        deferredPrompt = null;
+                    }
+                });
+            }
         }
 
         if (dismissBtn && pwaPopup) {
@@ -764,11 +788,8 @@
         }
 
         window.addEventListener('appinstalled', () => {
-            // Hide the app-provided install promotion
             if (pwaPopup) pwaPopup.classList.add('translate-y-full', 'opacity-0');
-            // Clear the deferredPrompt so it can be garbage collected
             deferredPrompt = null;
-            console.log('PWA was installed');
         });
 
         // Initialize Feather Icons
